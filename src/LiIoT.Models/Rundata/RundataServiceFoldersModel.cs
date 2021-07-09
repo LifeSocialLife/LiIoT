@@ -30,17 +30,17 @@ namespace LiIoT.Models.Rundata
         }
 
         /// <summary>
-        /// Gets or sets path to dotnet runtimes.
+        /// Gets or sets Path from where the software is started.
         /// </summary>
         public string PathRuntimes { get; set; }
 
         /// <summary>
-        /// Gets or sets path to software execute file.
+        /// Gets or sets Path to the software starting file. ex "C:\\...\\src\\StarterGui\\bin\\Debug\\net6.0\\StarterGui.exe".
         /// </summary>
         public string PathExecuteFile { get; set; }
 
         /// <summary>
-        /// Gets or sets path where software where started from.
+        /// Gets or sets Path to the software folder. same as PathExecuteFile whitout fileinformation.
         /// </summary>
         public string PathExecute { get; set; }
 
