@@ -1,4 +1,9 @@
 ﻿StarterGui.Program
 StarterGui.Program.Program() -> void
+StarterGui.Startup
+StarterGui.Startup.Configuration.get -> Microsoft.Extensions.Configuration.IConfiguration!
+StarterGui.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder! app, Microsoft.AspNetCore.Hosting.IWebHostEnvironment! env) -> void
+StarterGui.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> void
+StarterGui.Startup.Startup(Microsoft.Extensions.Configuration.IConfiguration! configuration) -> void
 static StarterGui.Program.CreateHostBuilder(string![]! args) -> Microsoft.Extensions.Hosting.IHostBuilder!
 static StarterGui.Program.Main(string![]! args) -> void
