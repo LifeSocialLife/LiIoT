@@ -1,0 +1,4 @@
+﻿LiIoT.Services.RunDataService
+LiIoT.Services.RunDataService.Folders.get -> LiIoT.Models.Rundata.RundataServiceFoldersModel!
+LiIoT.Services.RunDataService.Folders.set -> void
+LiIoT.Services.RunDataService.RunDataService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.RunDataService!>! logger) -> void

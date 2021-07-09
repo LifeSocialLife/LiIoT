@@ -11,6 +11,7 @@ namespace StarterGui
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using LiIoT.Services;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Components;
     using Microsoft.AspNetCore.Components.Authorization;
@@ -55,6 +56,9 @@ namespace StarterGui
                     this.Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            // Rundata Service
+            services.AddSingleton<RunDataService>();
 
             // Blazor default services
             services.AddRazorPages();

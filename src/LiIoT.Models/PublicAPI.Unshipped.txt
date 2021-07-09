@@ -1,0 +1,13 @@
+﻿LiIoT.Models.Rundata.RundataServiceFoldersModel
+LiIoT.Models.Rundata.RundataServiceFoldersModel.ConfigFile.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.ConfigFile.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.GetAllData() -> System.Collections.Generic.Dictionary<string!, string!>!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathData.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathData.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathExecute.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathExecute.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathExecuteFile.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathExecuteFile.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathRuntimes.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathRuntimes.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.RundataServiceFoldersModel() -> void
