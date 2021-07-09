@@ -1,0 +1,4 @@
+﻿StarterGui.Program
+StarterGui.Program.Program() -> void
+static StarterGui.Program.CreateHostBuilder(string![]! args) -> Microsoft.Extensions.Hosting.IHostBuilder!
+static StarterGui.Program.Main(string![]! args) -> void
