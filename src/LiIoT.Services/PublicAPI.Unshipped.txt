@@ -1,4 +1,27 @@
 ﻿LiIoT.Services.RunDataService
 LiIoT.Services.RunDataService.Folders.get -> LiIoT.Models.Rundata.RundataServiceFoldersModel!
 LiIoT.Services.RunDataService.Folders.set -> void
+LiIoT.Services.RunDataService.Hardware.get -> LiIoT.Models.Rundata.RundataServiceHardwareModel!
+LiIoT.Services.RunDataService.Hardware.set -> void
 LiIoT.Services.RunDataService.RunDataService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.RunDataService!>! logger) -> void
+LiIoT.Services.RunDataService.RunningAs.get -> LiIoT.Services.RunningAsEnum
+LiIoT.Services.RunDataService.RunningAs.set -> void
+LiIoT.Services.RunDataService.SetHardwareModel() -> bool
+LiIoT.Services.RunDataService.StartUpRunningPart.get -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.RunDataService.StartUpRunningPart.set -> void
+LiIoT.Services.RunDataService.StartUpRunningStage.get -> ushort
+LiIoT.Services.RunDataService.StartUpRunningStage.set -> void
+LiIoT.Services.RunningAsEnum
+LiIoT.Services.RunningAsEnum.Master = 1 -> LiIoT.Services.RunningAsEnum
+LiIoT.Services.RunningAsEnum.None = 0 -> LiIoT.Services.RunningAsEnum
+LiIoT.Services.RunningAsEnum.Slave = 2 -> LiIoT.Services.RunningAsEnum
+LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.StartUpRunningPartEnum.CheckingNodes = 4 -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.StartUpRunningPartEnum.Error = 8 -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.StartUpRunningPartEnum.Init = 1 -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.StartUpRunningPartEnum.None = 0 -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.StartUpRunningPartEnum.ReadingConfiguration = 2 -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.StartUpRunningPartEnum.ReadingDataFiles = 3 -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.StartUpRunningPartEnum.Running = 7 -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.StartUpRunningPartEnum.Standby = 6 -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.StartUpRunningPartEnum.StartingServices = 5 -> LiIoT.Services.StartUpRunningPartEnum
