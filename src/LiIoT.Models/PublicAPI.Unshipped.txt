@@ -1,0 +1,26 @@
+﻿LiIoT.Models.Rundata.RundataServiceFoldersModel
+LiIoT.Models.Rundata.RundataServiceFoldersModel.ConfigFile.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.ConfigFile.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.GetAllData() -> System.Collections.Generic.Dictionary<string!, string!>!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathData.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathData.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathExecute.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathExecute.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathExecuteFile.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathExecuteFile.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathRuntimes.get -> string!
+LiIoT.Models.Rundata.RundataServiceFoldersModel.PathRuntimes.set -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel.RundataServiceFoldersModel() -> void
+LiIoT.Models.Rundata.RundataServiceHardwareModel
+LiIoT.Models.Rundata.RundataServiceHardwareModel.FrameworkDescription.get -> string!
+LiIoT.Models.Rundata.RundataServiceHardwareModel.FrameworkDescription.set -> void
+LiIoT.Models.Rundata.RundataServiceHardwareModel.GetAllData() -> System.Collections.Generic.Dictionary<string!, string!>!
+LiIoT.Models.Rundata.RundataServiceHardwareModel.Os.get -> LiTools.Helpers.IO.Hardware.PlatformOsEnum
+LiIoT.Models.Rundata.RundataServiceHardwareModel.Os.set -> void
+LiIoT.Models.Rundata.RundataServiceHardwareModel.OSArchitecture.get -> LiTools.Helpers.IO.Hardware.ArchitectureEnum
+LiIoT.Models.Rundata.RundataServiceHardwareModel.OSArchitecture.set -> void
+LiIoT.Models.Rundata.RundataServiceHardwareModel.OsDescription.get -> string!
+LiIoT.Models.Rundata.RundataServiceHardwareModel.OsDescription.set -> void
+LiIoT.Models.Rundata.RundataServiceHardwareModel.ProcessorArchitecture.get -> LiTools.Helpers.IO.Hardware.ArchitectureEnum
+LiIoT.Models.Rundata.RundataServiceHardwareModel.ProcessorArchitecture.set -> void
+LiIoT.Models.Rundata.RundataServiceHardwareModel.RundataServiceHardwareModel() -> void

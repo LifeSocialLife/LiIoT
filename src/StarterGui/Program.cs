@@ -22,7 +22,7 @@ namespace StarterGui
     public class Program
     {
         /// <summary>
-        /// Main Starter of Gui starter
+        /// Main Starter of Gui starter.
         /// </summary>
         /// <param name="args">Read starting arg.</param>
         public static void Main(string[] args)

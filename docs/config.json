@@ -1,0 +1,37 @@
+{
+    "title": "LiIot Wiki site",
+    "tagline": "Wiki & Developers Documentation",
+    "author": "Lennie Wennerlund",
+    "image": "",
+    "ignore": {
+            "files": ["Work_In_Progress.md"],
+			"files": ["99_mall.md"],
+            "folders": ["99_Not_Ready"]
+    },
+    "live": {
+        "clean_urls": true
+    },
+    "html": {
+        "theme": "daux-blue",
+        "breadcrumbs": true,
+        "breadcrumb_separator": "Chevrons",
+        "toggle_code": true,
+        "date_modified": true,
+        "float": true,
+        "inherit_index": true,
+        "search": true,
+        "twitter": ["onigoetz"],
+        "google_analytics": "",
+        "links": {
+            "GitHub Repo": "https://github.com/LifeSocialLife/LiIoT",
+            "Help/Support/Bugs": "https://github.com/LifeSocialLife/LiIoT/issues"
+        },
+
+        "powered_by": "Powered by Daux.io"
+    },
+    "confluence": {
+        "base_url": "https://dauxio.atlassian.net/wiki/",
+        "space_id": "DOC",
+        "root_id": 196610
+    }
+}
