@@ -1,3 +1,3 @@
 ﻿override StarterNoGui.Worker.ExecuteAsync(System.Threading.CancellationToken stoppingToken) -> System.Threading.Tasks.Task!
 StarterNoGui.Worker
-StarterNoGui.Worker.Worker(Microsoft.Extensions.Logging.ILogger<StarterNoGui.Worker!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostappLifetime, Microsoft.Extensions.Configuration.IConfiguration! configuration, LiIoT.Services.RunDataService! rundataService) -> void
+StarterNoGui.Worker.Worker(Microsoft.Extensions.Logging.ILogger<StarterNoGui.Worker!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostappLifetime, Microsoft.Extensions.Configuration.IConfiguration! configuration, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService) -> void

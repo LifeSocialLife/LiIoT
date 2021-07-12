@@ -51,6 +51,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LiIoT.Models\LiIoT.Models.csproj" />
     <ProjectReference Include="..\LiIoT.Services\LiIoT.Services.csproj" />
     <ProjectReference Include="..\StarterNoGui\StarterNoGui.csproj" />
