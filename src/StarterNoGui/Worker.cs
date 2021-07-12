@@ -24,11 +24,13 @@ namespace StarterNoGui
     /// <summary>
     /// Worker class. Main background work.
     /// </summary>
+    [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1124:DoNotUseRegions", Justification = "Reviewed.")]
     public class Worker : BackgroundService
     {
 #pragma warning disable SA1309 // FieldNamesMustNotBeginWithUnderscore
         private readonly ILogger<Worker> _logger;
         private readonly RunDataService _rundata;
+        private readonly ConfigFileService _configfile;
         private readonly IConfiguration _configuration;
         private readonly IHostApplicationLifetime _hostApplicationLifetime;
 #pragma warning restore SA1309 // FieldNamesMustNotBeginWithUnderscore
@@ -40,12 +42,14 @@ namespace StarterNoGui
         /// <param name="hostappLifetime">IHostApplicationLifetime.</param>
         /// <param name="configuration">IConfiguration.</param>
         /// <param name="rundataService">RunDataService.</param>
-        public Worker(ILogger<Worker> logger, IHostApplicationLifetime hostappLifetime, IConfiguration configuration, RunDataService rundataService)
+        /// <param name="configFileService">ConfigFileService.</param>
+        public Worker(ILogger<Worker> logger, IHostApplicationLifetime hostappLifetime, IConfiguration configuration, RunDataService rundataService, ConfigFileService configFileService)
         {
             this._logger = logger;
             this._hostApplicationLifetime = hostappLifetime;
             this._configuration = configuration;
             this._rundata = rundataService;
+            this._configfile = configFileService;
             this.zzDebug = "Worker";
         }
 
@@ -81,6 +85,7 @@ namespace StarterNoGui
                     {
                     }
 
+                    await Task.Delay(1000, stoppingToken);
                     continue;
                 }
 
@@ -100,19 +105,50 @@ namespace StarterNoGui
             }
         }
 
+        #region Upstart Scheduler Items
+
         private async Task<bool> RunUpstartScheduler()
         {
             if (this._rundata.StartUpRunningStage < 10)
             {
                 this._rundata.StartUpRunningPart = StartUpRunningPartEnum.Init;
+
+                if (!this.RunUpstartSchedulerOneToNine())
+                {
+                    this._rundata.StartUpRunningPart = StartUpRunningPartEnum.Error;
+                    return false;
+                }
             }
 
+            if (this._rundata.StartUpRunningStage < 50)
+            {
+                this._rundata.StartUpRunningPart = StartUpRunningPartEnum.ReadingConfiguration;
+
+                if (!this.RunUpstartSchedulerTenToFortyNine())
+                {
+                    this._rundata.StartUpRunningPart = StartUpRunningPartEnum.Error;
+                    return false;
+                }
+            }
+
+            await Task.Delay(1000);
+
+            // this._rundata.StartUpRunningStage = 1000;
+            return true;
+        }
+
+        /// <summary>
+        /// Upstart part. part 1 to 9.
+        /// </summary>
+        /// <returns>false if error exist.</returns>
+        private bool RunUpstartSchedulerOneToNine()
+        {
             // Shod we run stage 1 - Get Folder inforamtion.
             if (this._rundata.StartUpRunningStage == 1)
             {
                 if (this.GetRundataFolderData())
                 {
-                    await Task.Delay(1000);
+                    Task.Delay(1000);
                     this._rundata.StartUpRunningStage = 2;
                 }
                 else
@@ -127,7 +163,7 @@ namespace StarterNoGui
             {
                 if (this._rundata.SetHardwareModel())
                 {
-                    await Task.Delay(1000);
+                    Task.Delay(1000);
                     this._rundata.StartUpRunningStage = 3;
                 }
                 else
@@ -137,7 +173,42 @@ namespace StarterNoGui
                 }
             }
 
-            this._rundata.StartUpRunningStage = 1000;
+            this._rundata.StartUpRunningStage = 10;
+            return true;
+        }
+
+        /// <summary>
+        /// Upstart part. part 10 to 49.
+        /// </summary>
+        /// <returns>false if error exist.</returns>
+        private bool RunUpstartSchedulerTenToFortyNine()
+        {
+            // Shod we run stage 10 - Configuration file locating
+            if (this._rundata.StartUpRunningStage == 10)
+            {
+                this._configfile.LocateConfigurationFile(true);
+
+                if (string.IsNullOrEmpty(this._rundata.Folders.ConfigFile))
+                {
+                    return false;
+                }
+
+                if (this._rundata.Folders.ConfigFile.ToLower() == "nodata")
+                {
+                    return false;
+                }
+
+                this._rundata.StartUpRunningStage = 11;
+
+                var a1 = this._rundata.Folders;
+                this.zzDebug = "sdfdsf";
+            }
+
+            // 11 - Read configuration file.
+            if (this._rundata.StartUpRunningStage == 11)
+            {
+                this.zzDebug = "sdfdsf";
+            }
             return true;
         }
 
@@ -159,6 +230,8 @@ namespace StarterNoGui
 
             return true;
         }
+
+        #endregion
 
         private void OnStarted()
         {

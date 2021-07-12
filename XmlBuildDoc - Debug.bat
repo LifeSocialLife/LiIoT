@@ -1,0 +1,4 @@
+xmldocmd src\StarterNoGui\bin\Debug\net6.0\LiIoT.Services.dll docs\10_Development\99_xmldoc --source https://github.com/LifeSocialLife/LiIoT/tree/main/src/LiIoT.Services --obsolete --clean
+xmldocmd src\StarterNoGui\bin\Debug\net6.0\LiIoT.Models.dll docs\10_Development\99_xmldoc --source https://github.com/LifeSocialLife/LiIoT/tree/main/src/LiIoT.Models --obsolete --clean
+rem xmldocmd src\StarterNoGui\bin\Debug\net6.0\StarterNoGui.dll docs\10_Development\99_xmldoc --source https://github.com/LifeSocialLife/LiIoT/tree/main/src/StarterNoGui --obsolete --clean
+rem xmldocmd src\StarterGui\bin\Debug\net6.0\StarterGui.dll docs\10_Development\99_xmldoc --source https://github.com/LifeSocialLife/LiIoT/tree/main/src/StarterGui --obsolete --clean

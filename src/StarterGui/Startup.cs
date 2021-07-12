@@ -59,6 +59,7 @@ namespace StarterGui
 
             // Rundata Service
             services.AddSingleton<RunDataService>();
+            services.AddSingleton<ConfigFileService>();
 
             // Blazor default services
             services.AddRazorPages();

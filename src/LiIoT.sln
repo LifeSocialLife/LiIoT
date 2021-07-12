@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31410.223
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarterNoGui", "StarterNoGui\StarterNoGui.csproj", "{4B066B31-B41B-40D2-BCBB-FD19FC93AD14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarterGui", "StarterGui\StarterGui.csproj", "{EC67D992-1423-427C-A259-B5C95365A3B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarterGui", "StarterGui\StarterGui.csproj", "{EC67D992-1423-427C-A259-B5C95365A3B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiIoT.Services", "LiIoT.Services\LiIoT.Services.csproj", "{AED3914A-40AA-4F0E-9174-5B87DBFBF206}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiIoT.Services", "LiIoT.Services\LiIoT.Services.csproj", "{AED3914A-40AA-4F0E-9174-5B87DBFBF206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiIoT.Models", "LiIoT.Models\LiIoT.Models.csproj", "{85894001-F0AF-4DF7-AA11-C8926CC823C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiIoT.Models", "LiIoT.Models\LiIoT.Models.csproj", "{85894001-F0AF-4DF7-AA11-C8926CC823C4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{31C23B16-A6BB-4C12-A444-9EDE11A0D19A}"
 EndProject
@@ -22,6 +22,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiTools.Helpers.Encoding", "..\..\LiTools\LiTools.Helpers.Encoding\LiTools.Helpers.Encoding.csproj", "{4CFCAC07-6D4C-49CA-AF4A-833EF0FA7F7A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiTools.Helpers.IO", "..\..\LiTools\LiTools.Helpers.IO\LiTools.Helpers.IO.csproj", "{B7D43187-5B80-4448-9B6F-E7DA27E97443}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F799ED36-EDAF-4D42-A527-EFF2A5FBAD4E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
