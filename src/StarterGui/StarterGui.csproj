@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -57,7 +57,6 @@
   <ItemGroup>
     <ProjectReference Include="..\LiIoT.Models\LiIoT.Models.csproj" />
     <ProjectReference Include="..\LiIoT.Services\LiIoT.Services.csproj" />
-    <ProjectReference Include="..\StarterNoGui\StarterNoGui.csproj" />
   </ItemGroup>
   
 </Project>

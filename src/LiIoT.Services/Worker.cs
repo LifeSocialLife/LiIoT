@@ -6,7 +6,7 @@
 // </copyright>
 // <author>Lennie Wennerlund (lempa)</author>
 
-namespace StarterNoGui
+namespace LiIoT.Services
 {
     using System;
     using System.Collections.Generic;
@@ -33,6 +33,7 @@ namespace StarterNoGui
         private readonly ConfigFileService _configfile;
         private readonly IConfiguration _configuration;
         private readonly IHostApplicationLifetime _hostApplicationLifetime;
+        // private readonly NiceToHaveCoreService _niceToHaveCoreService;
 #pragma warning restore SA1309 // FieldNamesMustNotBeginWithUnderscore
 
         /// <summary>
@@ -209,12 +210,13 @@ namespace StarterNoGui
             {
                 this.zzDebug = "sdfdsf";
             }
+
             return true;
         }
 
         private bool GetRundataFolderData()
         {
-            this._rundata.Folders.PathRuntimes = this._configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
+            this._rundata.Folders.PathRuntimes = DumpData.PathRuntimes; //   this._configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
 
 #pragma warning disable CS8601 // Possible null reference assignment.
             if (System.Diagnostics.Process.GetCurrentProcess()?.MainModule?.FileName != null)
