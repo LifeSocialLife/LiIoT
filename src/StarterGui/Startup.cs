@@ -57,8 +57,12 @@ namespace StarterGui
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            LiIoT.Services.SoftwareRulesAndStaticData.PathRuntimes = this.Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
+
             // Rundata Service
             services.AddSingleton<RunDataService>();
+
+            // Adding singeltons
             services.AddSingleton<ConfigFileService>();
 
             // Blazor default services
@@ -69,7 +73,7 @@ namespace StarterGui
             services.AddSingleton<WeatherForecastService>();
 
             // Background services
-            services.AddHostedService<StarterNoGui.Worker>();
+            services.AddHostedService<LiIoT.Services.Worker>();
         }
 
         /// <summary>

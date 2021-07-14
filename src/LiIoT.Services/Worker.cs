@@ -6,7 +6,7 @@
 // </copyright>
 // <author>Lennie Wennerlund (lempa)</author>
 
-namespace StarterNoGui
+namespace LiIoT.Services
 {
     using System;
     using System.Collections.Generic;
@@ -137,6 +137,8 @@ namespace StarterNoGui
             return true;
         }
 
+        #region Upstart 1 to 9
+
         /// <summary>
         /// Upstart part. part 1 to 9.
         /// </summary>
@@ -177,6 +179,8 @@ namespace StarterNoGui
             return true;
         }
 
+        #endregion
+
         /// <summary>
         /// Upstart part. part 10 to 49.
         /// </summary>
@@ -186,35 +190,102 @@ namespace StarterNoGui
             // Shod we run stage 10 - Configuration file locating
             if (this._rundata.StartUpRunningStage == 10)
             {
-                this._configfile.LocateConfigurationFile(true);
+                var tmpPath = this._configfile.LocateConfigurationFile(true);
 
-                if (string.IsNullOrEmpty(this._rundata.Folders.ConfigFile))
+                if (string.IsNullOrEmpty(tmpPath))
                 {
+                    if (System.Diagnostics.Debugger.IsAttached)
+                    {
+                        System.Diagnostics.Debugger.Break();
+                    }
+
+                    return false;
+                }
+                else if (tmpPath == "nodata")
+                {
+                    if (System.Diagnostics.Debugger.IsAttached)
+                    {
+                        System.Diagnostics.Debugger.Break();
+                    }
+
                     return false;
                 }
 
-                if (this._rundata.Folders.ConfigFile.ToLower() == "nodata")
-                {
-                    return false;
-                }
+                this._rundata.Folders.ConfigFile = tmpPath;
 
                 this._rundata.StartUpRunningStage = 11;
 
-                var a1 = this._rundata.Folders;
                 this.zzDebug = "sdfdsf";
             }
 
             // 11 - Read configuration file.
             if (this._rundata.StartUpRunningStage == 11)
             {
+                if (!this._configfile.ConfigurationFileRead())
+                {
+                    if (System.Diagnostics.Debugger.IsAttached)
+                    {
+                        System.Diagnostics.Debugger.Break();
+                    }
+
+                    return false;
+                }
+
+                this._rundata.StartUpRunningStage = 12;
+                var a1 = this._rundata.Folders;
                 this.zzDebug = "sdfdsf";
             }
+
+            // 12 - Check pathdata folder from config file.
+            if (this._rundata.StartUpRunningStage == 12)
+            {
+                // Check if we have datapath from configfile.
+                if (string.IsNullOrEmpty(this._configfile.ConfigFile.PathData))
+                {
+                    // Path data folder dont exist in configuration file.
+                    if (System.Diagnostics.Debugger.IsAttached)
+                    {
+                        System.Diagnostics.Debugger.Break();
+                    }
+
+                    return false;
+                }
+
+                // Move datapath from configfile into rundata.
+                this._rundata.Folders.PathData = this._configfile.ConfigFile.PathData;
+
+                // Check if pathdata folder exist.
+                if (!LiTools.Helpers.IO.Directory.Exist(this._rundata.Folders.PathData))
+                {
+                    // DataPath dont exist....
+                    if (System.Diagnostics.Debugger.IsAttached)
+                    {
+                        System.Diagnostics.Debugger.Break();
+                    }
+
+                    return false;
+                }
+
+                this._rundata.StartUpRunningStage = 13;
+                var a1 = this._rundata.Folders;
+                this.zzDebug = "sdfdsf";
+
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    System.Diagnostics.Debugger.Break();
+                }
+            }
+
+            this._rundata.StartUpRunningStage = 1000;
             return true;
         }
 
         private bool GetRundataFolderData()
         {
-            this._rundata.Folders.PathRuntimes = this._configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
+            if (!string.IsNullOrEmpty(SoftwareRulesAndStaticData.PathRuntimes))
+            {
+                this._rundata.Folders.PathRuntimes = SoftwareRulesAndStaticData.PathRuntimes;
+            }
 
 #pragma warning disable CS8601 // Possible null reference assignment.
             if (System.Diagnostics.Process.GetCurrentProcess()?.MainModule?.FileName != null)
@@ -232,6 +303,8 @@ namespace StarterNoGui
         }
 
         #endregion
+
+        #region OnStarted, OnStopping, OnStopped
 
         private void OnStarted()
         {
@@ -260,5 +333,7 @@ namespace StarterNoGui
 
             this.zzDebug = "sdfdf";
         }
+
+        #endregion
     }
 }
