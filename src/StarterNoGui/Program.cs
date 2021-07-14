@@ -44,7 +44,7 @@ namespace StarterNoGui
                     services.AddSingleton<RunDataService>();
                     services.AddSingleton<ConfigFileService>();
 
-                    LiIoT.Services.DumpData.PathRuntimes = hostContext.Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
+                    LiIoT.Services.SoftwareRulesAndStaticData.PathRuntimes = hostContext.Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
                     services.AddHostedService<LiIoT.Services.Worker>();
                 });
     }

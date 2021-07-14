@@ -1,4 +1,38 @@
-﻿LiIoT.Models.Rundata.RundataServiceFoldersModel
+﻿LiIoT.Models.Configuration.ConfigFileModel
+LiIoT.Models.Configuration.ConfigFileModel.ConfigFileModel() -> void
+LiIoT.Models.Configuration.Configfile_v1_Model
+LiIoT.Models.Configuration.Configfile_v1_Model.Configfile_v1_Model() -> void
+LiIoT.Models.Configuration.Configfile_v1_Model.EncryptDataFolder.get -> bool
+LiIoT.Models.Configuration.Configfile_v1_Model.EncryptDataFolder.set -> void
+LiIoT.Models.Configuration.Configfile_v1_Model.NodeInfo.get -> string!
+LiIoT.Models.Configuration.Configfile_v1_Model.NodeInfo.set -> void
+LiIoT.Models.Configuration.Configfile_v1_Model.NodeName.get -> string!
+LiIoT.Models.Configuration.Configfile_v1_Model.NodeName.set -> void
+LiIoT.Models.Configuration.Configfile_v1_Model.Nodes.get -> System.Collections.Generic.List<LiIoT.Models.Configuration.ConfigFile_NodesModel!>!
+LiIoT.Models.Configuration.Configfile_v1_Model.Nodes.set -> void
+LiIoT.Models.Configuration.Configfile_v1_Model.PathData.get -> string!
+LiIoT.Models.Configuration.Configfile_v1_Model.PathData.set -> void
+LiIoT.Models.Configuration.Configfile_v1_Model.Version.get -> ushort
+LiIoT.Models.Configuration.Configfile_v1_Model.Version.set -> void
+LiIoT.Models.Configuration.NodeConfigfileModel
+LiIoT.Models.Configuration.NodeConfigfileModel.NodeConfigfileModel() -> void
+LiIoT.Models.Configuration.NodeConfigfileModel.Nodes.get -> System.Collections.Generic.List<LiIoT.Models.Configuration.NodesConfigfileItemsModel!>!
+LiIoT.Models.Configuration.NodeConfigfileModel.Nodes.set -> void
+LiIoT.Models.Configuration.NodeConfigfileModel.Version.get -> ushort
+LiIoT.Models.Configuration.NodeConfigfileModel.Version.set -> void
+LiIoT.Models.Configuration.NodesConfigfileItemsModel
+LiIoT.Models.Configuration.NodesConfigfileItemsModel.Enabled.get -> bool
+LiIoT.Models.Configuration.NodesConfigfileItemsModel.Enabled.set -> void
+LiIoT.Models.Configuration.NodesConfigfileItemsModel.Ip.get -> string!
+LiIoT.Models.Configuration.NodesConfigfileItemsModel.Ip.set -> void
+LiIoT.Models.Configuration.NodesConfigfileItemsModel.NodesConfigfileItemsModel() -> void
+LiIoT.Models.Configuration.NodesConfigfileItemsModel.PortApi.get -> ushort
+LiIoT.Models.Configuration.NodesConfigfileItemsModel.PortApi.set -> void
+LiIoT.Models.Configuration.NodesConfigfileItemsModel.PortHub.get -> ushort
+LiIoT.Models.Configuration.NodesConfigfileItemsModel.PortHub.set -> void
+LiIoT.Models.Configuration.NodesModel
+LiIoT.Models.Configuration.NodesModel.NodesModel() -> void
+LiIoT.Models.Rundata.RundataServiceFoldersModel
 LiIoT.Models.Rundata.RundataServiceFoldersModel.ConfigFile.get -> string!
 LiIoT.Models.Rundata.RundataServiceFoldersModel.ConfigFile.set -> void
 LiIoT.Models.Rundata.RundataServiceFoldersModel.GetAllData() -> System.Collections.Generic.Dictionary<string!, string!>!

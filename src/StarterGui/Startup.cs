@@ -57,7 +57,7 @@ namespace StarterGui
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            LiIoT.Services.DumpData.PathRuntimes = this.Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
+            LiIoT.Services.SoftwareRulesAndStaticData.PathRuntimes = this.Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
 
             // Rundata Service
             services.AddSingleton<RunDataService>();

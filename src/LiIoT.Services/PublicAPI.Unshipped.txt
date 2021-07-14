@@ -1,6 +1,10 @@
 ﻿LiIoT.Services.ConfigFileService
+LiIoT.Services.ConfigFileService.ConfigFile.get -> LiIoT.Models.Configuration.ConfigFileModel!
+LiIoT.Services.ConfigFileService.ConfigFile.set -> void
 LiIoT.Services.ConfigFileService.ConfigFileService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.ConfigFileService!>! logger, LiIoT.Services.RunDataService! runDataService) -> void
+LiIoT.Services.ConfigFileService.ConfigurationFileSave(LiIoT.Models.Configuration.ConfigFileModel? data = null, string? path = null) -> bool
 LiIoT.Services.ConfigFileService.LocateConfigurationFile(bool saveToRundata = true) -> string!
+LiIoT.Services.ConfigFileService.PathIsCorrect(string! path) -> bool
 LiIoT.Services.RunDataService
 LiIoT.Services.RunDataService.Folders.get -> LiIoT.Models.Rundata.RundataServiceFoldersModel!
 LiIoT.Services.RunDataService.Folders.set -> void
@@ -18,6 +22,7 @@ LiIoT.Services.RunningAsEnum
 LiIoT.Services.RunningAsEnum.Master = 1 -> LiIoT.Services.RunningAsEnum
 LiIoT.Services.RunningAsEnum.None = 0 -> LiIoT.Services.RunningAsEnum
 LiIoT.Services.RunningAsEnum.Slave = 2 -> LiIoT.Services.RunningAsEnum
+LiIoT.Services.SoftwareRulesAndStaticData
 LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.StartUpRunningPartEnum.CheckingNodes = 4 -> LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.StartUpRunningPartEnum.Error = 8 -> LiIoT.Services.StartUpRunningPartEnum
@@ -28,3 +33,12 @@ LiIoT.Services.StartUpRunningPartEnum.ReadingDataFiles = 3 -> LiIoT.Services.Sta
 LiIoT.Services.StartUpRunningPartEnum.Running = 7 -> LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.StartUpRunningPartEnum.Standby = 6 -> LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.StartUpRunningPartEnum.StartingServices = 5 -> LiIoT.Services.StartUpRunningPartEnum
+LiIoT.Services.Worker
+LiIoT.Services.Worker.Worker(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Worker!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostappLifetime, Microsoft.Extensions.Configuration.IConfiguration! configuration, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService) -> void
+override LiIoT.Services.Worker.ExecuteAsync(System.Threading.CancellationToken stoppingToken) -> System.Threading.Tasks.Task!
+static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileAtleastVersionToRun.get -> ushort
+static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileLatestVersion.get -> ushort
+static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileVersion.get -> ushort
+static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileVersion.set -> void
+static LiIoT.Services.SoftwareRulesAndStaticData.PathRuntimes.get -> string?
+static LiIoT.Services.SoftwareRulesAndStaticData.PathRuntimes.set -> void
