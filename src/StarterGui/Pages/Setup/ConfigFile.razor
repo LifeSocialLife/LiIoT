@@ -1,0 +1,164 @@
+﻿@page "/setup/configfile"
+@using LiIoT.Services;
+@using LiIoT.Models.Configuration
+@using System;
+@using System.ComponentModel.DataAnnotations;
+@inject RunDataService _rundata
+@inject ConfigFileService _config
+@inject NavigationManager NavManager
+
+<h3>ConfigFile</h3>
+
+
+<EditForm Model="@configfile" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    @*<CustomValidator @ref="customValidator"></CustomValidator>*@
+        
+
+    <p>
+        <label for="NodeName">Name of this node: (This name cannot be change later.)</label>
+        <InputText id="identifier" @bind-Value="configfile.NodeName" />
+        <ValidationMessage For="() => configfile.NodeName" />
+    </p>
+    <p>
+        <label for="NodeInfo">Description: </label>
+        <InputTextArea id="description" @bind-Value="configfile.NodeInfo" />
+        <ValidationMessage For="() => configfile.NodeInfo" />
+    </p>
+
+      <p>
+        <label for="EncryptDataFolder">Encrypt all configuration files save in the data folder on this system: </label>
+        <InputCheckbox id="valid" @bind-Value="configfile.EncryptDataFolder" />
+        <ValidationMessage For="() => configfile.EncryptDataFolder" />
+    </p>
+    @if (this.configfile.ConfigDontExist)
+    {
+        <p>
+        <label for="classification">Primary Classification: </label><br />
+        <InputSelect id="classification" @bind-Value="configfile.WhereToSave">
+            <option value="">Select folder ...</option>
+            @if (!string.IsNullOrEmpty(this._rundata.Folders.PathData))
+                {
+                    <option value="@this._rundata.Folders.PathData">@this._rundata.Folders.PathData</option>
+                }
+            <option value="@this._rundata.Folders.PathExecute">@this._rundata.Folders.PathExecute</option>
+            <option value="@this._rundata.Folders.PathRuntimes">@this._rundata.Folders.PathRuntimes</option>
+        </InputSelect>
+        <ValidationMessage For="() => configfile.WhereToSave" />
+    </p>
+    }
+    
+     <p>
+        <label for="PathData">Path where to save data files.: </label><br />
+        <InputText id="description" @bind-Value="configfile.PathData" /><br />
+        <ValidationMessage For="() => configfile.PathData" />
+         @if (this.configfile.PathError)
+        {
+            <label id="patherror">Path dont exist.</label>    
+        }
+        
+    </p>
+
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+
+@code {
+
+    public ConfigFile()
+    {
+        this.configfile = new configfileModel();
+        this.zzDebug = "ConfigFile";
+    }
+
+    private configfileModel configfile { get; set; }
+
+    private class configfileModel : ConfigFileModel
+    {
+        [Required(ErrorMessage = "You need to select folder!!")]
+        @*[StringLength(5, ErrorMessage = "You need to select folder!!")]*@
+    public string WhereToSave { get; set; }
+
+        public bool ConfigDontExist { get; set; }
+
+        public bool PathError { get; set; }
+
+        public configfileModel()
+        {
+            this.WhereToSave = string.Empty;
+            this.ConfigDontExist = false;
+            this.PathError = false;
+        }
+    }
+
+    private string zzDebug { get; set; }
+
+    protected override void OnInitialized()
+    {
+        this.configfile = new configfileModel();
+
+        if (string.IsNullOrEmpty(this._rundata.Folders.ConfigFile))
+        {
+            // Config file dont exist. Create a new template and how on page.
+            this.configfile.ConfigDontExist = true;
+        }
+
+        this.zzDebug = "sdfdf";
+    }
+
+     private void HandleValidSubmit()
+     {
+         if (this.configfile.ConfigDontExist)
+        {
+            // Config file dont exist. create new file.
+            // Create a save model.
+            var tmpSave = new ConfigFileModel()
+            {
+                EncryptDataFolder = false,
+                NodeInfo = this.configfile.NodeInfo,
+                NodeName = this.configfile.NodeName,
+                Version = 1,
+                PathData = this.configfile.PathData,
+            };
+
+            if (string.IsNullOrEmpty(this.configfile.WhereToSave))
+            {
+                // Something is wrong. this shod not be empty
+
+                if (System.Diagnostics.Debugger.IsAttached)
+                    {
+                        System.Diagnostics.Debugger.Break();
+                    }
+                return;
+            }
+
+            // Check if datapath exist?
+            if (!this._config.PathIsCorrect(tmpSave.PathData))
+            {
+                this.configfile.PathError = true;
+                return;
+            }
+
+            this.configfile.PathError = false;
+            this.zzDebug = "sdfdsf";
+
+             // Save the data
+            if (this._config.ConfigurationFileSave(tmpSave, this.configfile.WhereToSave))
+            {
+                // config file has been saved to disk.
+                _rundata.StartUpRunningPart = StartUpRunningPartEnum.ReadingConfiguration;
+                this.zzDebug = "sfdsf";
+                NavManager.NavigateTo("/", true);
+                return;
+            }
+
+            this.zzDebug = "sdfdsf";
+
+        }
+         
+       
+        this.zzDebug = "sdfdf";
+    }
+}

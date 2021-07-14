@@ -1,0 +1,44 @@
+﻿@page "/startupstages"
+@using LiIoT.Services;
+@inject RunDataService _rundata
+
+<h1>StartupStages</h1>
+
+@if (this._rundata.StartUpRunningPart == StartUpRunningPartEnum.Error)
+{
+	<h2>Error in upstart.</h2>
+}
+else
+{
+	<h2>No error found durring upstart.</h2>
+	return;
+}
+
+<h3>Stage code: @this._rundata.StartUpRunningStage</h3>
+@if (this._rundata.StartUpRunningStage == 10)
+{
+	<p>Configuration file is missing.</p>
+	<a href="/setup/configfile">Create new configuration file.</a>
+}
+
+@if (this._rundata.StartUpRunningStage == 11)
+{
+	<h3>Error in configuration file!</h3>
+	<p>Configuration file: @_rundata.Folders.ConfigFile </p>
+
+	if (LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileVersion < LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileAtleastVersionToRun)
+	{
+		<p>
+	  Configuration file is to old. <br />This version need at-lest version: @LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileAtleastVersionToRun of configuration file to run.<br />
+	  The latest version of configuration file is: @LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileLatestVersion <br />
+	  The version of this file is: @LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileVersion
+		</p>
+	}
+	
+	@*<a href="/setup/configfile">Create new configuration file.</a>*@
+}
+
+
+@code {
+
+}
