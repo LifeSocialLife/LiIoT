@@ -9,7 +9,10 @@ public class ConfigFileService
 | name | description |
 | --- | --- |
 | [ConfigFileService](ConfigFileService/ConfigFileService.md)(…) |  |
+| [ConfigFile](ConfigFileService/ConfigFile.md) { get; set; } |  |
+| [ConfigurationFileSave](ConfigFileService/ConfigurationFileSave.md)(…) |  |
 | [LocateConfigurationFile](ConfigFileService/LocateConfigurationFile.md)(…) |  |
+| [PathIsCorrect](ConfigFileService/PathIsCorrect.md)(…) |  |
 
 ## See Also
 
