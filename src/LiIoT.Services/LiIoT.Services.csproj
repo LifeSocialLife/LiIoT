@@ -11,7 +11,7 @@
     <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.0.0-1.final" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.0-1.final" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.0.0-1.final" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Razor" Version="6.0.0-preview.5.21301.17" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Razor" Version="6.0.0-preview.6.21355.2" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -28,7 +28,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0-preview.5.21301.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0-preview.6.21352.12" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0-preview.5.21301.5" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0-preview.6.21352.12" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
   </ItemGroup>
     
@@ -48,6 +48,10 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\LiTools\LiTools.Helpers.Encoding\LiTools.Helpers.Encoding.csproj" />
     <ProjectReference Include="..\LiIoT.Models\LiIoT.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Db\" />
   </ItemGroup>
 
 </Project>
