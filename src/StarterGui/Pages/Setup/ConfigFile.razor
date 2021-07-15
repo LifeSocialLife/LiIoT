@@ -135,7 +135,7 @@
             }
 
             // Check if datapath exist?
-            if (!this._config.PathIsCorrect(tmpSave.PathData))
+            if (!LiTools.Helpers.IO.Directory.Exist(tmpSave.PathData))
             {
                 this.configfile.PathError = true;
                 return;

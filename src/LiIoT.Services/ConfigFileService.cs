@@ -257,20 +257,5 @@ namespace LiIoT.Services
 
             return true;
         }
-
-        /// <summary>
-        /// Check if path is correct and that directory exist.
-        /// </summary>
-        /// <param name="path">directory path.</param>
-        /// <returns>true = exist, false = dont exist.</returns>
-        public bool PathIsCorrect(string path)
-        {
-            if (Directory.Exists(@path))
-            {
-                return true;
-            }
-
-            return false;
-        }
     }
 }
