@@ -12,7 +12,9 @@ namespace LiIoT.Services.Db
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Text;
+    using System.Threading;
     using LiteDB;
+    using LiteDB.Async;
     using Microsoft.Extensions.Logging;
 
     /// <summary>
@@ -21,10 +23,18 @@ namespace LiIoT.Services.Db
     public class LiteDbService
     {
 #pragma warning disable SA1309 // FieldNamesMustNotBeginWithUnderscore
+        // public readonly object _dblock = new object();
+
+        /// <summary>
+        /// Lock access to this db.
+        /// </summary>
+        [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Reviewed.")]
+        public Semaphore _lock = new(1, 1);
+
         private readonly ILogger<LiteDbService> _logger;
         private readonly RunDataService _rundata;
 
-        private LiteDatabase? _db;
+        private LiteDatabaseAsync? _db;
         private bool _dbInitIsDone;
 
 #pragma warning restore SA1309 // FieldNamesMustNotBeginWithUnderscore
@@ -45,7 +55,7 @@ namespace LiIoT.Services.Db
         /// <summary>
         /// Gets get litedb database connection.
         /// </summary>
-        public LiteDatabase Db
+        public LiteDatabaseAsync Db
         {
             get
             {
@@ -65,11 +75,15 @@ namespace LiIoT.Services.Db
         [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
         private string zzDebug { get; set; }
 
+        /// <summary>
+        /// Do init of the database connection.
+        /// </summary>
+        /// <returns>true if the db init was done.</returns>
         public bool DbInit()
         {
             // Build Path to db directory and file file.
             var tmpPath = new System.IO.FileInfo(System.IO.Path.Combine(this._rundata.Folders.PathData, "db"));
-            var tmpfile = new System.IO.FileInfo(System.IO.Path.Combine(this._rundata.Folders.PathData, "db", SoftwareRulesAndStaticData.DbFilename));
+            var tmpfile = new System.IO.FileInfo(System.IO.Path.Combine(tmpPath.FullName, SoftwareRulesAndStaticData.DbFilename));
 
             this.zzDebug = "dsdsf";
 
@@ -92,10 +106,13 @@ namespace LiIoT.Services.Db
 
             try
             {
-                this._db = new LiteDatabase(conString);
+                // this._db = new LiteDatabase(conString);
+                this._db = new LiteDatabaseAsync(conString);
             }
             catch (Exception e)
             {
+                this._logger.LogError(e.Message);
+
                 if (System.Diagnostics.Debugger.IsAttached)
                 {
                     System.Diagnostics.Debugger.Break();

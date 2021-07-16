@@ -8,10 +8,12 @@ LiIoT.Services.ConfigFileService.PathIsCorrect(string! path) -> bool
 LiIoT.Services.Db.DevicesModel
 LiIoT.Services.Db.DevicesModel.DevicesModel() -> void
 LiIoT.Services.Db.LiteDbService
-LiIoT.Services.Db.LiteDbService.Db.get -> LiteDB.LiteDatabase!
+LiIoT.Services.Db.LiteDbService.Db.get -> LiteDB.Async.LiteDatabaseAsync!
+LiIoT.Services.Db.LiteDbService.DbInit() -> bool
 LiIoT.Services.Db.LiteDbService.LiteDbService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Db.LiteDbService!>! logger, LiIoT.Services.RunDataService! runDataService) -> void
+LiIoT.Services.Db.LiteDbService._lock -> System.Threading.Semaphore!
 LiIoT.Services.Db.LiteDbServicesDevices
-LiIoT.Services.Db.LiteDbServicesDevices.GetAll() -> void
+LiIoT.Services.Db.LiteDbServicesDevices.GetAll() -> System.Threading.Tasks.Task<System.Tuple<bool, System.Collections.Generic.List<LiIoT.Services.Db.DevicesModel!>!>!>!
 LiIoT.Services.Db.LiteDbServicesDevices.LiteDbServicesDevices(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Db.LiteDbServicesDevices!>! logger, LiIoT.Services.RunDataService! runDataService, LiIoT.Services.Db.LiteDbService! liteDbService) -> void
 LiIoT.Services.RunDataService
 LiIoT.Services.RunDataService.Folders.get -> LiIoT.Models.Rundata.RundataServiceFoldersModel!

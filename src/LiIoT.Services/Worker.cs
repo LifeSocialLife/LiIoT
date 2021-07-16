@@ -130,7 +130,7 @@ namespace LiIoT.Services
             {
                 this._rundata.StartUpRunningPart = StartUpRunningPartEnum.ReadingConfiguration;
 
-                if (!this.RunUpstartSchedulerTenToFortyNine())
+                if (!await this.RunUpstartSchedulerTenToFortyNine())
                 {
                     this._rundata.StartUpRunningPart = StartUpRunningPartEnum.Error;
                     return false;
@@ -191,7 +191,7 @@ namespace LiIoT.Services
         /// Upstart part. part 10 to 49.
         /// </summary>
         /// <returns>false if error exist.</returns>
-        private bool RunUpstartSchedulerTenToFortyNine()
+        private async Task<bool> RunUpstartSchedulerTenToFortyNine()
         {
             // Shod we run stage 10 - Configuration file locating
             if (this._rundata.StartUpRunningStage == 10)
@@ -290,7 +290,10 @@ namespace LiIoT.Services
 
                 this.zzDebug = "sdfd";
 
-                var aa = this._liteDbDevices.GetAll();
+                var aa = await this._liteDbDevices.GetAll();
+
+                // Task.WaitAll(aa);
+
                 this.zzDebug = "sdfdf";
 
             }
