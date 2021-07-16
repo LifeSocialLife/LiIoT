@@ -12,6 +12,7 @@ namespace StarterGui
     using System.Linq;
     using System.Threading.Tasks;
     using LiIoT.Services;
+    using LiIoT.Services.Db;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Components;
     using Microsoft.AspNetCore.Components.Authorization;
@@ -64,6 +65,10 @@ namespace StarterGui
 
             // Adding singeltons
             services.AddSingleton<ConfigFileService>();
+
+            // LiteDb services.
+            services.AddSingleton<LiteDbService>();
+            services.AddSingleton<LiteDbServicesDevices>();
 
             // Blazor default services
             services.AddRazorPages();

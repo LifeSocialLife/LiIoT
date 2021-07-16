@@ -53,9 +53,9 @@ namespace LiIoT.Services
 #pragma warning disable IDE1006 // Naming Styles
 #pragma warning disable SA1300 // Element should begin with upper-case letter
 
-        private static string _pathFolder => "liiot";
+        // private static string _pathFolder => "liiot";
 
-        private static string _pathFilename => "liiotdata.conf";
+        // private static string _pathFilename => "liiotdata.conf";
 
         /// <summary>
         /// Gets or sets configuration file.
@@ -79,7 +79,7 @@ namespace LiIoT.Services
         {
             #region Locate in run folder
 
-            var tmpfile = new FileInfo(Path.Combine(Environment.CurrentDirectory, _pathFilename));
+            var tmpfile = new FileInfo(Path.Combine(Environment.CurrentDirectory, SoftwareRulesAndStaticData.ConfigurationFilename));
 
             if (tmpfile.Exists)
             {
@@ -93,7 +93,7 @@ namespace LiIoT.Services
 
             #region Locate in Appdata local folder
 
-            tmpfile = new FileInfo(Path.Combine(Environment.GetEnvironmentVariable("LocalAppData"), _pathFolder, _pathFilename));
+            tmpfile = new FileInfo(Path.Combine(Environment.GetEnvironmentVariable("LocalAppData"), SoftwareRulesAndStaticData.PathFoldername, SoftwareRulesAndStaticData.ConfigurationFilename));
 
             if (tmpfile.Exists)
             {
@@ -136,7 +136,7 @@ namespace LiIoT.Services
                     return false;
                 }
 
-                tmpfile = new FileInfo(Path.Combine(@path, _pathFilename));
+                tmpfile = new FileInfo(Path.Combine(@path, SoftwareRulesAndStaticData.ConfigurationFilename));
 
                 // path = new FileInfo(Path.Combine(path, "liiotdata.conf"));
             }

@@ -160,7 +160,7 @@ namespace LiIoT.Services
                 return false;
             }
 
-            if (this.Hardware.OSArchitecture == LiTools.Helpers.IO.Hardware.ArchitectureEnum.none)
+            if (this.Hardware.OSArchitecture == LiTools.Helpers.IO.Hardware.ArchitectureEnum.None)
             {
                 return false;
             }
@@ -175,7 +175,7 @@ namespace LiIoT.Services
                 return false;
             }
 
-            if (this.Hardware.ProcessorArchitecture == LiTools.Helpers.IO.Hardware.ArchitectureEnum.none)
+            if (this.Hardware.ProcessorArchitecture == LiTools.Helpers.IO.Hardware.ArchitectureEnum.None)
             {
                 return false;
             }

@@ -12,9 +12,11 @@ namespace LiIoT.Services
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Resources;
     using System.Threading;
     using System.Threading.Tasks;
     using LiIoT.Services;
+    using LiIoT.Services.Db;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +35,8 @@ namespace LiIoT.Services
         private readonly ConfigFileService _configfile;
         private readonly IConfiguration _configuration;
         private readonly IHostApplicationLifetime _hostApplicationLifetime;
+        private readonly LiteDbService _liteDb;
+        private readonly LiteDbServicesDevices _liteDbDevices;
 #pragma warning restore SA1309 // FieldNamesMustNotBeginWithUnderscore
 
         /// <summary>
@@ -43,13 +47,15 @@ namespace LiIoT.Services
         /// <param name="configuration">IConfiguration.</param>
         /// <param name="rundataService">RunDataService.</param>
         /// <param name="configFileService">ConfigFileService.</param>
-        public Worker(ILogger<Worker> logger, IHostApplicationLifetime hostappLifetime, IConfiguration configuration, RunDataService rundataService, ConfigFileService configFileService)
+        public Worker(ILogger<Worker> logger, IHostApplicationLifetime hostappLifetime, IConfiguration configuration, RunDataService rundataService, ConfigFileService configFileService, LiteDbService liteDbService, LiteDbServicesDevices liteDbServicesDevices)
         {
             this._logger = logger;
             this._hostApplicationLifetime = hostappLifetime;
             this._configuration = configuration;
             this._rundata = rundataService;
             this._configfile = configFileService;
+            this._liteDb = liteDbService;
+            this._liteDbDevices = liteDbServicesDevices;
             this.zzDebug = "Worker";
         }
 
@@ -270,12 +276,24 @@ namespace LiIoT.Services
                 var a1 = this._rundata.Folders;
                 this.zzDebug = "sdfdsf";
 
-                if (System.Diagnostics.Debugger.IsAttached)
-                {
-                    System.Diagnostics.Debugger.Break();
-                }
+                //if (System.Diagnostics.Debugger.IsAttached)
+                //{
+                //    System.Diagnostics.Debugger.Break();
+                //}
             }
 
+            // 13 - Check litedb storage.
+            if (this._rundata.StartUpRunningStage == 13)
+            {
+                this.zzDebug = "Sdfdsf";
+                this._liteDb.DbInit();
+
+                this.zzDebug = "sdfd";
+
+                var aa = this._liteDbDevices.GetAll();
+                this.zzDebug = "sdfdf";
+
+            }
             this._rundata.StartUpRunningStage = 1000;
             return true;
         }
