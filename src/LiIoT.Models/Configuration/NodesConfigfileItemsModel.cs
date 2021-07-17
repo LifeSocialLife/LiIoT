@@ -1,4 +1,4 @@
-﻿// <summary>
+// <summary>
 // NodesConfigfileItemsModel.
 // </summary>
 // <copyright file="NodesConfigfileItemsModel.cs" company="LiSoLi">
@@ -10,6 +10,7 @@ namespace LiIoT.Models.Configuration
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Text;
 
     /// <summary>

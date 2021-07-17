@@ -1,4 +1,4 @@
-﻿// <summary>
+// <summary>
 // Configuration file model. Configfile_v1_Model.
 // </summary>
 // <copyright file="Configfile_v1_Model.cs" company="LiSoLi">
