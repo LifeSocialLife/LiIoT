@@ -1,0 +1,582 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/lennie/Source/Repos/LiIoT/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.Configuration.ConfigFileModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.Configuration.ConfigFileModel.html",
+          "hash": "7d068W0H9jgYd7sXD5YnePEqySE9ELF/Sow4wqKSKtE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.Configuration.Configfile_v1_Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.Configuration.Configfile_v1_Model.html",
+          "hash": "IdRkN9rhfU5ESAxSFPNLpSLK/Drk86RvvjejQcffZbc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.Configuration.NodeConfigfileModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.Configuration.NodeConfigfileModel.html",
+          "hash": "TsJceObdwGLSdtcQb4sVIUTQdvAbsIMJfvCBSUyYFIs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.Configuration.NodesConfigfileItemsModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.Configuration.NodesConfigfileItemsModel.html",
+          "hash": "drTx0EezAMsct88ZiLEk81kPqJl5ZztBCnaf5Ov2TBI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.Configuration.NodesModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.Configuration.NodesModel.html",
+          "hash": "XZKCQ4IoXHBBzfaC4aqBC9G1H1MLGTNmTrbRc58cGO0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.Configuration.html",
+          "hash": "mpciqB+insvcDiXG6XEu6XhQ+QpOv7EfH+FR8vpFw2Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.DbLite.DbDeviceModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.DbLite.DbDeviceModel.html",
+          "hash": "jBBUHmixXmQLT6FjwJLPH2kgFcHMXoVnjhp+255jq+Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.DbLite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.DbLite.html",
+          "hash": "wqmPKnl1EVpM5oueRUgZFlQ4G/gUAQ1lfjRH6pUJg08="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.Rundata.RundataServiceFoldersModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.Rundata.RundataServiceFoldersModel.html",
+          "hash": "hWlL9v6AXusqkgFBzSqq20HxNDZDEKp9mEHpET86Vb8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.Rundata.RundataServiceHardwareModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.Rundata.RundataServiceHardwareModel.html",
+          "hash": "hsSYIIz8xYWT8YCRFR/tZClYsDsKFM+7JGmL3QM6WVQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Models.Rundata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Models.Rundata.html",
+          "hash": "0HsY4lY9Xif/giTH3RGEOQ6plxKu/wpvax4cT0Wl2sI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.ConfigFileService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.ConfigFileService.html",
+          "hash": "1evPyKK01La6iU/5WTEEN665eAveqKM4+MDRtGPtJ7Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.Db.LiteDbService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.Db.LiteDbService.html",
+          "hash": "nGZFLErIov2jAask8PF3P6GcoqVPXK9z5wzcET3cTL4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.Db.LiteDbServicesDevices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.Db.LiteDbServicesDevices.html",
+          "hash": "G7kd/rmxmvLPXZycIIAl25ja88NF10hSCOQY+JiFUvw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.Db.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.Db.html",
+          "hash": "fQ8hTaxsOVmpwy+9wIucPoAd4Xgdzgr27nPWwh1CQAE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.Devices.DeviceService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.Devices.DeviceService.html",
+          "hash": "fatlq3IwrBNSzXzUdA9fD3nxzUDB5AAXJ37S89Ar7Ng="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.Devices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.Devices.html",
+          "hash": "hxNkTJaYFu5ygwFqSlDCi6duSb08eZpnZ8EQLelirsE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.RunDataService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.RunDataService.html",
+          "hash": "XSkCbWzLgpd4ZBQlf80tdZDXdWsDnPrnya5d1OC1mq8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.RunningAsEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.RunningAsEnum.html",
+          "hash": "YEK2bb6qXj/Hh3UbGRtt+vt5hVu8N3gMzbcnzpFU+Hw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.SoftwareRulesAndStaticData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.SoftwareRulesAndStaticData.html",
+          "hash": "aY67SziWka5QDCa3KhlzA6N945Q1iUBvVPOiljOAibw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.StartUpRunningPartEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.StartUpRunningPartEnum.html",
+          "hash": "DEMl6EChNx2r+NFYvOLGLH+HUMX0vaiO7nJQp603xoU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.Worker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.Worker.html",
+          "hash": "Y5mM14mAYalp+uAGmu+HT+/4eb7JcGzR+Nd6ALiHvh4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LiIoT.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LiIoT.Services.html",
+          "hash": "U2y2rEiSbOHp845uGtF87DxN39LS0JgySMEWHU3Ww38="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Areas.Identity.RevalidatingIdentityAuthenticationStateProvider-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Areas.Identity.RevalidatingIdentityAuthenticationStateProvider-1.html",
+          "hash": "kqFbu58lRAemoBIA14x4rO23i4Y9z6dcIzDFXDvn9fw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Areas.Identity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Areas.Identity.html",
+          "hash": "1iIhv119odrti5q+Go7wWmztUq00Eaq8JEiuDjTCgq8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Data.ApplicationDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Data.ApplicationDbContext.html",
+          "hash": "WfRn738XiKXEEQJFc/oDYH4w3e4HWNspYQ9fqG1F5+w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Data.Migrations.CreateIdentitySchema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Data.Migrations.CreateIdentitySchema.html",
+          "hash": "W81KXEdLoFrHl8gmFmxCmEo5OSVGpQ02IT6tadKcsYo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Data.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Data.Migrations.html",
+          "hash": "/d2YeRF5sRGKPlI/0SPPWMV0RNCx08f9qEFH4jGqV9o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Data.WeatherForecast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Data.WeatherForecast.html",
+          "hash": "FYjoHDYunPiog522qimAQJ3Srrfmcc/LRhLQs7DsXQ8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Data.WeatherForecastService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Data.WeatherForecastService.html",
+          "hash": "SgEfMlY2YJkrLq8+5Whr9IAlrDlnL8gfxjdy4RPkvAg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Data.html",
+          "hash": "AtKi91NNatpYh8HCmOlrIhcW+I+BE6SixLWKaR0Yy6g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Pages.ErrorModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Pages.ErrorModel.html",
+          "hash": "o0to5z3CYPfmQmqeqLSmOnPgluRB78hJM6ATXlzW+b4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Pages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Pages.html",
+          "hash": "gM1v3w/qper7rQm/qoU9C8FOoO3D8gOGa5s1wmtuFkY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Program.html",
+          "hash": "G5QFzciB+q3UA8xElV5sYAhVPC0w5oFvZZzESyvcGkc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.Startup.html",
+          "hash": "DK/ra5mJUHCCG7+c/8kyzpZluOHIorrWduOU3LuUZYs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterGui.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterGui.html",
+          "hash": "mAcEBF1SblxP9gMgV2vwRL29+QETa+tNysHGo0nuArU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterNoGui.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterNoGui.Program.html",
+          "hash": "tDhG/wQ6WwZiqxLgRKQYqVax7TQwkdv9qIuG+e+0ETg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/StarterNoGui.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/StarterNoGui.html",
+          "hash": "D2V6psTqBqNQhvti1NPZVKQKWWonNpptZn0kyJI4agc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "ajgVA9VKajUisEKv4N4wjTQR/OyG973rFkjL1uJ5J7M="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "gh2WmTSWpUQ3e3hg3zwuQwHTeWb3wng2AhQvweZDFmg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "FDDJpa1SbxHo2ve73mUWjJSTc+jmsQ5oOiATaduWVTY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "5GezA/msua+2Vtbkvdx9o/dCQx7EHneMFq4Ouwr07ZI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "WSuRrYiGwKKMbtdG9z8W9fXmLoCyTnGg9AxbPKLXm2Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 38,
+          "skipped_file_count": 12
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
