@@ -5,6 +5,18 @@ LiIoT.Services.ConfigFileService.ConfigFileService(Microsoft.Extensions.Logging.
 LiIoT.Services.ConfigFileService.ConfigurationFileSave(LiIoT.Models.Configuration.ConfigFileModel? data = null, string? path = null) -> bool
 LiIoT.Services.ConfigFileService.LocateConfigurationFile(bool saveToRundata = true) -> string!
 LiIoT.Services.ConfigFileService.PathIsCorrect(string! path) -> bool
+LiIoT.Services.Db.DevicesModel
+LiIoT.Services.Db.DevicesModel.DevicesModel() -> void
+LiIoT.Services.Db.LiteDbService
+LiIoT.Services.Db.LiteDbService.Db.get -> LiteDB.Async.LiteDatabaseAsync!
+LiIoT.Services.Db.LiteDbService.DbInit() -> bool
+LiIoT.Services.Db.LiteDbService.LiteDbService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Db.LiteDbService!>! logger, LiIoT.Services.RunDataService! runDataService) -> void
+LiIoT.Services.Db.LiteDbService._lock -> System.Threading.Semaphore!
+LiIoT.Services.Db.LiteDbServicesDevices
+LiIoT.Services.Db.LiteDbServicesDevices.GetAll() -> System.Threading.Tasks.Task<System.Tuple<bool, System.Collections.Generic.List<LiIoT.Models.DbLite.DbDeviceModel!>!>!>!
+LiIoT.Services.Db.LiteDbServicesDevices.LiteDbServicesDevices(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Db.LiteDbServicesDevices!>! logger, LiIoT.Services.RunDataService! runDataService, LiIoT.Services.Db.LiteDbService! liteDbService) -> void
+LiIoT.Services.Devices.DeviceService
+LiIoT.Services.Devices.DeviceService.DeviceService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Devices.DeviceService!>! logger, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService, LiIoT.Services.Db.LiteDbService! liteDbService, LiIoT.Services.Db.LiteDbServicesDevices! liteDbServicesDevices) -> void
 LiIoT.Services.RunDataService
 LiIoT.Services.RunDataService.Folders.get -> LiIoT.Models.Rundata.RundataServiceFoldersModel!
 LiIoT.Services.RunDataService.Folders.set -> void
@@ -34,11 +46,16 @@ LiIoT.Services.StartUpRunningPartEnum.Running = 7 -> LiIoT.Services.StartUpRunni
 LiIoT.Services.StartUpRunningPartEnum.Standby = 6 -> LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.StartUpRunningPartEnum.StartingServices = 5 -> LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.Worker
-LiIoT.Services.Worker.Worker(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Worker!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostappLifetime, Microsoft.Extensions.Configuration.IConfiguration! configuration, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService) -> void
+LiIoT.Services.Worker.Worker(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Worker!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostappLifetime, Microsoft.Extensions.Configuration.IConfiguration! configuration, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService, LiIoT.Services.Db.LiteDbService! liteDbService, LiIoT.Services.Db.LiteDbServicesDevices! liteDbServicesDevices) -> void
 override LiIoT.Services.Worker.ExecuteAsync(System.Threading.CancellationToken stoppingToken) -> System.Threading.Tasks.Task!
 static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileAtleastVersionToRun.get -> ushort
 static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileLatestVersion.get -> ushort
 static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileVersion.get -> ushort
 static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileVersion.set -> void
+static LiIoT.Services.SoftwareRulesAndStaticData.ConfigurationFilename.get -> string!
+static LiIoT.Services.SoftwareRulesAndStaticData.DbFilename.get -> string!
+static LiIoT.Services.SoftwareRulesAndStaticData.PathFoldername.get -> string!
 static LiIoT.Services.SoftwareRulesAndStaticData.PathRuntimes.get -> string?
 static LiIoT.Services.SoftwareRulesAndStaticData.PathRuntimes.set -> void
+static LiIoT.Services.SoftwareRulesAndStaticData.Version.get -> string!
+static LiIoT.Services.SoftwareRulesAndStaticData.VersionBuild.get -> string!

@@ -1,5 +1,5 @@
 ﻿// <summary>
-// Starter no Gui Worker class.
+// NodeConfigfileModel.
 // </summary>
 // <copyright file="NodeConfigfileModel.cs" company="LiSoLi">
 // Copyright (c) LiSoLi. All rights reserved.

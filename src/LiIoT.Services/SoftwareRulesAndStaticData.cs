@@ -14,6 +14,16 @@ namespace LiIoT.Services
     public static class SoftwareRulesAndStaticData
     {
         /// <summary>
+        /// Gets version.
+        /// </summary>
+        public static string Version => "0.1";
+
+        /// <summary>
+        /// Gets version Build date and information.
+        /// </summary>
+        public static string VersionBuild => "BETA 202107715";
+
+        /// <summary>
         /// Gets or sets temp folder to pathruntimes from starting project befor service is activated.
         /// </summary>
         public static string? PathRuntimes { get; set; }
@@ -32,5 +42,20 @@ namespace LiIoT.Services
         /// Gets or sets the version of the configfile that is running now.
         /// </summary>
         public static ushort ConfigFileVersion { get; set; }
+
+        /// <summary>
+        /// Gets folder where configuration file can be saved.
+        /// </summary>
+        public static string PathFoldername => "liiot";
+
+        /// <summary>
+        /// Gets name of main configuration filename.
+        /// </summary>
+        public static string ConfigurationFilename => "liiotdata.conf";
+
+        /// <summary>
+        /// Gets db filename.
+        /// </summary>
+        public static string DbFilename => "liiotdb.db";
     }
 }

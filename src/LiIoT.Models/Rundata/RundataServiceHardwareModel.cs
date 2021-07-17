@@ -25,8 +25,8 @@ namespace LiIoT.Models.Rundata
         {
             this.Os = PlatformOsEnum.None;
             this.FrameworkDescription = string.Empty;
-            this.OSArchitecture = ArchitectureEnum.none;
-            this.ProcessorArchitecture = ArchitectureEnum.none;
+            this.OSArchitecture = ArchitectureEnum.None;
+            this.ProcessorArchitecture = ArchitectureEnum.None;
             this.OsDescription = string.Empty;
         }
 

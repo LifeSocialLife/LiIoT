@@ -1,5 +1,5 @@
 ﻿// <summary>
-// Starter no Gui Worker class.
+// Configuration file model.
 // </summary>
 // <copyright file="ConfigFileModel.cs" company="LiSoLi">
 // Copyright (c) LiSoLi. All rights reserved.
