@@ -32,6 +32,12 @@ LiIoT.Models.Configuration.NodesConfigfileItemsModel.PortHub.get -> ushort
 LiIoT.Models.Configuration.NodesConfigfileItemsModel.PortHub.set -> void
 LiIoT.Models.Configuration.NodesModel
 LiIoT.Models.Configuration.NodesModel.NodesModel() -> void
+LiIoT.Models.DbLite.DbDeviceModel
+LiIoT.Models.DbLite.DbDeviceModel.DbDeviceModel() -> void
+LiIoT.Models.DbLite.DbDeviceModel.Id.get -> LiteDB.ObjectId!
+LiIoT.Models.DbLite.DbDeviceModel.Id.set -> void
+LiIoT.Models.DbLite.DbDeviceModel.Text.get -> string!
+LiIoT.Models.DbLite.DbDeviceModel.Text.set -> void
 LiIoT.Models.Rundata.RundataServiceFoldersModel
 LiIoT.Models.Rundata.RundataServiceFoldersModel.ConfigFile.get -> string!
 LiIoT.Models.Rundata.RundataServiceFoldersModel.ConfigFile.set -> void
