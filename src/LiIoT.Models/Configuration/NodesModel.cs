@@ -18,7 +18,5 @@ namespace LiIoT.Models.Configuration
     /// </summary>
     public class NodesModel
     {
-
-
     }
 }

@@ -1,5 +1,5 @@
 ﻿// <summary>
-// Starter no Gui Worker class.
+// NodeConfigfileModel.
 // </summary>
 // <copyright file="NodeConfigfileModel.cs" company="LiSoLi">
 // Copyright (c) LiSoLi. All rights reserved.
@@ -36,43 +36,5 @@ namespace LiIoT.Models.Configuration
         /// Gets or sets version of this file.
         /// </summary>
         public ushort Version { get; set; }
-    }
-
-    /// <summary>
-    /// Nodes configuration file model.
-    /// </summary>
-    [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleType", Justification = "Reviewed.")]
-    public class NodesConfigfileItemsModel
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NodesConfigfileItemsModel"/> class.
-        /// </summary>
-        public NodesConfigfileItemsModel()
-        {
-            this.Ip = string.Empty;
-            this.PortHub = 0;
-            this.PortApi = 0;
-            this.Enabled = false;
-        }
-
-        /// <summary>
-        /// Gets or sets ip to node.
-        /// </summary>
-        public string Ip { get; set; }
-
-        /// <summary>
-        /// Gets or sets port to Hub interface.
-        /// </summary>
-        public ushort PortHub { get; set; }
-
-        /// <summary>
-        /// Gets or sets port to Api interface.
-        /// </summary>
-        public ushort PortApi { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether is this node enabled.
-        /// </summary>
-        public bool Enabled { get; set; }
     }
 }

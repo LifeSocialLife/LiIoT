@@ -47,6 +47,8 @@ namespace LiIoT.Services
         /// <param name="configuration">IConfiguration.</param>
         /// <param name="rundataService">RunDataService.</param>
         /// <param name="configFileService">ConfigFileService.</param>
+        /// <param name="liteDbService">LiteDbService.</param>
+        /// <param name="liteDbServicesDevices">LiteDbServicesDevices.</param>
         public Worker(ILogger<Worker> logger, IHostApplicationLifetime hostappLifetime, IConfiguration configuration, RunDataService rundataService, ConfigFileService configFileService, LiteDbService liteDbService, LiteDbServicesDevices liteDbServicesDevices)
         {
             this._logger = logger;
@@ -276,10 +278,10 @@ namespace LiIoT.Services
                 var a1 = this._rundata.Folders;
                 this.zzDebug = "sdfdsf";
 
-                //if (System.Diagnostics.Debugger.IsAttached)
-                //{
+                // if (System.Diagnostics.Debugger.IsAttached)
+                // {
                 //    System.Diagnostics.Debugger.Break();
-                //}
+                // }
             }
 
             // 13 - Check litedb storage.
@@ -293,10 +295,9 @@ namespace LiIoT.Services
                 var aa = await this._liteDbDevices.GetAll();
 
                 // Task.WaitAll(aa);
-
                 this.zzDebug = "sdfdf";
-
             }
+
             this._rundata.StartUpRunningStage = 1000;
             return true;
         }

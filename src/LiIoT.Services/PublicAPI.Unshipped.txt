@@ -46,7 +46,7 @@ LiIoT.Services.StartUpRunningPartEnum.Running = 7 -> LiIoT.Services.StartUpRunni
 LiIoT.Services.StartUpRunningPartEnum.Standby = 6 -> LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.StartUpRunningPartEnum.StartingServices = 5 -> LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.Worker
-LiIoT.Services.Worker.Worker(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Worker!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostappLifetime, Microsoft.Extensions.Configuration.IConfiguration! configuration, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService) -> void
+LiIoT.Services.Worker.Worker(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Worker!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostappLifetime, Microsoft.Extensions.Configuration.IConfiguration! configuration, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService, LiIoT.Services.Db.LiteDbService! liteDbService, LiIoT.Services.Db.LiteDbServicesDevices! liteDbServicesDevices) -> void
 override LiIoT.Services.Worker.ExecuteAsync(System.Threading.CancellationToken stoppingToken) -> System.Threading.Tasks.Task!
 static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileAtleastVersionToRun.get -> ushort
 static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileLatestVersion.get -> ushort
