@@ -5,6 +5,10 @@ LiIoT.Services.ConfigFileService.ConfigFileService(Microsoft.Extensions.Logging.
 LiIoT.Services.ConfigFileService.ConfigurationFileSave(LiIoT.Models.Configuration.ConfigFileModel? data = null, string? path = null) -> bool
 LiIoT.Services.ConfigFileService.LocateConfigurationFile(bool saveToRundata = true) -> string!
 LiIoT.Services.ConfigFileService.PathIsCorrect(string! path) -> bool
+LiIoT.Services.Core.SystemCancellationTokenService
+LiIoT.Services.Core.SystemCancellationTokenService.Cancel() -> void
+LiIoT.Services.Core.SystemCancellationTokenService.SystemCancellationTokenService() -> void
+LiIoT.Services.Core.SystemCancellationTokenService.Token.get -> System.Threading.CancellationToken
 LiIoT.Services.Db.DevicesModel
 LiIoT.Services.Db.DevicesModel.DevicesModel() -> void
 LiIoT.Services.Db.LiteDbService
