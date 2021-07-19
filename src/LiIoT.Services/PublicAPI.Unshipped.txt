@@ -1,10 +1,20 @@
-﻿LiIoT.Services.ConfigFileService
+﻿LiIoT.Services.Communication.MQTT.MqttServerService
+LiIoT.Services.Communication.MQTT.MqttServerService.Check() -> void
+LiIoT.Services.Communication.MQTT.MqttServerService.Init() -> bool
+LiIoT.Services.Communication.MQTT.MqttServerService.IsRunning.get -> bool
+LiIoT.Services.Communication.MQTT.MqttServerService.IsRunning.set -> void
+LiIoT.Services.Communication.MQTT.MqttServerService.MqttServerService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Communication.MQTT.MqttServerService!>! logger, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService, LiIoT.Services.Core.SystemCancellationTokenService! systemCancellationTokenService) -> void
+LiIoT.Services.ConfigFileService
 LiIoT.Services.ConfigFileService.ConfigFile.get -> LiIoT.Models.Configuration.ConfigFileModel!
 LiIoT.Services.ConfigFileService.ConfigFile.set -> void
 LiIoT.Services.ConfigFileService.ConfigFileService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.ConfigFileService!>! logger, LiIoT.Services.RunDataService! runDataService) -> void
+LiIoT.Services.ConfigFileService.ConfigurationFileRead() -> bool
 LiIoT.Services.ConfigFileService.ConfigurationFileSave(LiIoT.Models.Configuration.ConfigFileModel? data = null, string? path = null) -> bool
 LiIoT.Services.ConfigFileService.LocateConfigurationFile(bool saveToRundata = true) -> string!
-LiIoT.Services.ConfigFileService.PathIsCorrect(string! path) -> bool
+LiIoT.Services.Contracts.LiIoTCoreService
+LiIoT.Services.Contracts.LiIoTCoreService.LiIoTCoreService() -> void
+LiIoT.Services.Contracts.LiIoTCoreService.Start() -> void
+LiIoT.Services.Core.ParallelTask
 LiIoT.Services.Core.SystemCancellationTokenService
 LiIoT.Services.Core.SystemCancellationTokenService.Cancel() -> void
 LiIoT.Services.Core.SystemCancellationTokenService.SystemCancellationTokenService() -> void
@@ -50,8 +60,11 @@ LiIoT.Services.StartUpRunningPartEnum.Running = 7 -> LiIoT.Services.StartUpRunni
 LiIoT.Services.StartUpRunningPartEnum.Standby = 6 -> LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.StartUpRunningPartEnum.StartingServices = 5 -> LiIoT.Services.StartUpRunningPartEnum
 LiIoT.Services.Worker
-LiIoT.Services.Worker.Worker(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Worker!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostappLifetime, Microsoft.Extensions.Configuration.IConfiguration! configuration, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService, LiIoT.Services.Db.LiteDbService! liteDbService, LiIoT.Services.Db.LiteDbServicesDevices! liteDbServicesDevices) -> void
+LiIoT.Services.Worker.Worker(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Worker!>! logger, Microsoft.Extensions.Hosting.IHostApplicationLifetime! hostappLifetime, Microsoft.Extensions.Configuration.IConfiguration! configuration, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService, LiIoT.Services.Db.LiteDbService! liteDbService, LiIoT.Services.Db.LiteDbServicesDevices! liteDbServicesDevices, LiIoT.Services.Communication.MQTT.MqttServerService! mqttServerService) -> void
+override LiIoT.Services.Communication.MQTT.MqttServerService.OnStart() -> void
 override LiIoT.Services.Worker.ExecuteAsync(System.Threading.CancellationToken stoppingToken) -> System.Threading.Tasks.Task!
+static LiIoT.Services.Core.ParallelTask.Start(System.Func<System.Threading.Tasks.Task!>! action, Microsoft.Extensions.Logging.ILogger! logger, System.Threading.CancellationToken cancellationToken) -> void
+static LiIoT.Services.Core.ParallelTask.StartLongRunning(System.Action! action, Microsoft.Extensions.Logging.ILogger! logger, System.Threading.CancellationToken cancellationToken) -> void
 static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileAtleastVersionToRun.get -> ushort
 static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileLatestVersion.get -> ushort
 static LiIoT.Services.SoftwareRulesAndStaticData.ConfigFileVersion.get -> ushort
@@ -63,3 +76,4 @@ static LiIoT.Services.SoftwareRulesAndStaticData.PathRuntimes.get -> string?
 static LiIoT.Services.SoftwareRulesAndStaticData.PathRuntimes.set -> void
 static LiIoT.Services.SoftwareRulesAndStaticData.Version.get -> string!
 static LiIoT.Services.SoftwareRulesAndStaticData.VersionBuild.get -> string!
+virtual LiIoT.Services.Contracts.LiIoTCoreService.OnStart() -> void
