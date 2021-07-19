@@ -162,10 +162,12 @@ namespace LiIoT.Services
             return true;
         }
 
+        /// <summary>
+        /// Read cinfiguration file.
+        /// </summary>
+        /// <returns>True if the file as read.</returns>
         public bool ConfigurationFileRead()
         {
-            // ushort FileVersion = 0;
-
             var dd = LiTools.Helpers.IO.File.ReadTextFile(this._rundata.Folders.ConfigFile);
             if (!dd.Item1)
             {
