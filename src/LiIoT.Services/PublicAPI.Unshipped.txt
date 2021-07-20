@@ -1,9 +1,29 @@
 ﻿LiIoT.Services.Communication.MQTT.MqttServerService
 LiIoT.Services.Communication.MQTT.MqttServerService.Check() -> void
+LiIoT.Services.Communication.MQTT.MqttServerService.GetClientsAsync() -> System.Threading.Tasks.Task<System.Collections.Generic.IList<MQTTnet.Server.Status.IMqttClientStatus!>!>!
+LiIoT.Services.Communication.MQTT.MqttServerService.GetSessionsAsync() -> System.Threading.Tasks.Task<System.Collections.Generic.IList<MQTTnet.Server.Status.IMqttSessionStatus!>!>!
 LiIoT.Services.Communication.MQTT.MqttServerService.Init() -> bool
 LiIoT.Services.Communication.MQTT.MqttServerService.IsRunning.get -> bool
 LiIoT.Services.Communication.MQTT.MqttServerService.IsRunning.set -> void
 LiIoT.Services.Communication.MQTT.MqttServerService.MqttServerService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Communication.MQTT.MqttServerService!>! logger, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService, LiIoT.Services.Core.SystemCancellationTokenService! systemCancellationTokenService) -> void
+LiIoT.Services.Communication.MQTT.MqttTopicMessagesModel
+LiIoT.Services.Communication.MQTT.MqttTopicMessagesModel.ClientId.get -> string!
+LiIoT.Services.Communication.MQTT.MqttTopicMessagesModel.ClientId.set -> void
+LiIoT.Services.Communication.MQTT.MqttTopicMessagesModel.DtAdded.get -> System.DateTime
+LiIoT.Services.Communication.MQTT.MqttTopicMessagesModel.DtAdded.set -> void
+LiIoT.Services.Communication.MQTT.MqttTopicMessagesModel.Message.get -> string!
+LiIoT.Services.Communication.MQTT.MqttTopicMessagesModel.Message.set -> void
+LiIoT.Services.Communication.MQTT.MqttTopicMessagesModel.MqttTopicMessagesModel() -> void
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel.Message.get -> string!
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel.Message.set -> void
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel.Messages.get -> System.Collections.Generic.List<LiIoT.Services.Communication.MQTT.MqttTopicMessagesModel!>!
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel.Messages.set -> void
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel.MqttTopicSubscriberModel() -> void
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel.Poster.get -> System.Collections.Generic.List<string!>!
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel.Poster.set -> void
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel.Subscriber.get -> System.Collections.Generic.List<string!>!
+LiIoT.Services.Communication.MQTT.MqttTopicSubscriberModel.Subscriber.set -> void
 LiIoT.Services.ConfigFileService
 LiIoT.Services.ConfigFileService.ConfigFile.get -> LiIoT.Models.Configuration.ConfigFileModel!
 LiIoT.Services.ConfigFileService.ConfigFile.set -> void
@@ -29,7 +49,22 @@ LiIoT.Services.Db.LiteDbService._lock -> System.Threading.Semaphore!
 LiIoT.Services.Db.LiteDbServicesDevices
 LiIoT.Services.Db.LiteDbServicesDevices.GetAll() -> System.Threading.Tasks.Task<System.Tuple<bool, System.Collections.Generic.List<LiIoT.Models.DbLite.DbDeviceModel!>!>!>!
 LiIoT.Services.Db.LiteDbServicesDevices.LiteDbServicesDevices(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Db.LiteDbServicesDevices!>! logger, LiIoT.Services.RunDataService! runDataService, LiIoT.Services.Db.LiteDbService! liteDbService) -> void
+LiIoT.Services.Devices.DeviceEnums
+LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes
+LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes.Relay = 0 -> LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes
+LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes.Sensor = 1 -> LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes
+LiIoT.Services.Devices.DeviceItemUpdateModel
+LiIoT.Services.Devices.DeviceItemUpdateModel.DeviceItemUpdateModel() -> void
+LiIoT.Services.Devices.DeviceItemUpdateModel.ItemDtvalue.get -> System.DateTime
+LiIoT.Services.Devices.DeviceItemUpdateModel.ItemDtvalue.set -> void
+LiIoT.Services.Devices.DeviceItemUpdateModel.ItemId.get -> string!
+LiIoT.Services.Devices.DeviceItemUpdateModel.ItemId.set -> void
+LiIoT.Services.Devices.DeviceItemUpdateModel.Itemtype.get -> LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes
+LiIoT.Services.Devices.DeviceItemUpdateModel.Itemtype.set -> void
+LiIoT.Services.Devices.DeviceItemUpdateModel.ItemValue.get -> string!
+LiIoT.Services.Devices.DeviceItemUpdateModel.ItemValue.set -> void
 LiIoT.Services.Devices.DeviceService
+LiIoT.Services.Devices.DeviceService.DeviceItemDataAdd.set -> void
 LiIoT.Services.Devices.DeviceService.DeviceService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Devices.DeviceService!>! logger, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService, LiIoT.Services.Db.LiteDbService! liteDbService, LiIoT.Services.Db.LiteDbServicesDevices! liteDbServicesDevices) -> void
 LiIoT.Services.RunDataService
 LiIoT.Services.RunDataService.Folders.get -> LiIoT.Models.Rundata.RundataServiceFoldersModel!
