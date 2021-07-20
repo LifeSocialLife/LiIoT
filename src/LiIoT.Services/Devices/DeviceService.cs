@@ -19,6 +19,8 @@ namespace LiIoT.Services.Devices
     /// </summary>
     public class DeviceService
     {
+        private readonly System.Collections.Concurrent.BlockingCollection<DeviceItemUpdateModel> deviceItemDataUpdate = new();
+
 #pragma warning disable SA1309 // FieldNamesMustNotBeginWithUnderscore
         private readonly ILogger<DeviceService> _logger;
         private readonly RunDataService _rundata;
@@ -43,6 +45,17 @@ namespace LiIoT.Services.Devices
             this._liteDb = liteDbService;
             this._liteDbDevices = liteDbServicesDevices;
             this.zzDebug = "DeviceService";
+        }
+
+        /// <summary>
+        /// Sets insert new data (status) into relay or sensor data.
+        /// </summary>
+        public DeviceItemUpdateModel DeviceItemDataAdd
+        {
+            set
+            {
+                this.deviceItemDataUpdate.Add(value);
+            }
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0052:Remove unread private members", Justification = "Reviewed.")]
