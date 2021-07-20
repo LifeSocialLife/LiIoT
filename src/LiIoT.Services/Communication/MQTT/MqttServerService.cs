@@ -12,6 +12,7 @@ namespace LiIoT.Services.Communication.MQTT
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Text;
+    using System.Threading.Tasks;
     using LiIoT.Services.Contracts;
     using LiIoT.Services.Core;
     using LiIoT.Services.Db;
@@ -32,12 +33,18 @@ namespace LiIoT.Services.Communication.MQTT
     public class MqttServerService : LiIoTCoreService
     {
 #pragma warning disable SA1309 // FieldNamesMustNotBeginWithUnderscore
+
         private readonly ILogger<MqttServerService> _logger;
         private readonly RunDataService _rundata;
         private readonly ConfigFileService _configfile;
         private readonly SystemCancellationTokenService _systemCancellationToken;
 
-        private IMqttServer? _mqttServer;
+        private readonly Dictionary<string, MqttTopicSubscriberModel> _topic = new();
+
+        private readonly System.Collections.Concurrent.BlockingCollection<MqttApplicationMessageReceivedEventArgs> _incomingMessages = new();
+
+        private IMqttServer _mqttServer;
+
 #pragma warning restore SA1309 // FieldNamesMustNotBeginWithUnderscore
 
         /// <summary>
@@ -59,6 +66,10 @@ namespace LiIoT.Services.Communication.MQTT
             this._systemCancellationToken = systemCancellationTokenService;
             this.zzDebug = "MqttServerService";
             this.IsRunning = false;
+
+            // MQTT init.
+            var mqttFactory = new MqttFactory();
+            this._mqttServer = mqttFactory.CreateMqttServer();
         }
 
         /// <summary>
@@ -88,10 +99,6 @@ namespace LiIoT.Services.Communication.MQTT
         {
             if (!this.IsRunning)
             {
-                var mqttFactory = new MqttFactory();
-
-                this._mqttServer = mqttFactory.CreateMqttServer();
-
                 this.zzDebug = "Sdfdsf";
 
                 this._mqttServer.UseApplicationMessageReceivedHandler(new MqttApplicationMessageReceivedHandlerDelegate(e => this.OnApplicationMessageReceived(e)));
@@ -109,6 +116,24 @@ namespace LiIoT.Services.Communication.MQTT
 
                 this.OnStart();
             }
+        }
+
+        /// <summary>
+        /// Get all client status from mqtt server.
+        /// </summary>
+        /// <returns>List IMqttClientStatus.</returns>
+        public Task<IList<IMqttClientStatus>> GetClientsAsync()
+        {
+            return this._mqttServer.GetClientStatusAsync();
+        }
+
+        /// <summary>
+        /// Get all session status from mqtt server.
+        /// </summary>
+        /// <returns>List IMqttSessionStatus.</returns>
+        public Task<IList<IMqttSessionStatus>> GetSessionsAsync()
+        {
+            return this._mqttServer.GetSessionStatusAsync();
         }
 
         /// <summary>
@@ -133,14 +158,41 @@ namespace LiIoT.Services.Communication.MQTT
             });
 
             // Use this to run background (task) work.
-            // ParallelTask.StartLongRunning(ProcessIncomingMqttMessages, this._systemCancellationToken.Token, this._logger);
+            ParallelTask.StartLongRunning(this.ProcessIncomingMqttMessages, this._logger, this._systemCancellationToken.Token);
             this.zzDebug = "sdfdsf";
 
             this.IsRunning = true;
         }
 
+        #region Handlers
+
         private void TopicSubscribedHandler(MqttServerClientSubscribedTopicEventArgs eventarg)
         {
+            this.zzDebug = "sdfdsf";
+
+            // TODO  Fix # when subscribing.
+            if (eventarg.TopicFilter.Topic.Contains("#"))
+            {
+                return;
+            }
+
+            lock (this._topic)
+            {
+                string topic = eventarg.TopicFilter.Topic.ToLower().Trim();
+
+                if (this._topic.ContainsKey(topic))
+                {
+                    if (!this._topic[topic].Subscriber.Contains(eventarg.ClientId))
+                    {
+                        this._topic[topic].Subscriber.Add(eventarg.ClientId);
+                    }
+                }
+                else
+                {
+                    this._topic.Add(topic, new MqttTopicSubscriberModel() { Subscriber = { eventarg.ClientId } });
+                }
+            }
+
             this.zzDebug = "sdfdsf";
 
             // eventarg.TopicFilter.
@@ -149,6 +201,12 @@ namespace LiIoT.Services.Communication.MQTT
 
         private void TopicUnSubscribedHandler(MqttServerClientUnsubscribedTopicEventArgs eventarg)
         {
+            // TODO  Fix # when subscribing.
+            if (eventarg.TopicFilter.Contains("#"))
+            {
+                return;
+            }
+
             this.zzDebug = "sddfdsf";
         }
 
@@ -158,8 +216,9 @@ namespace LiIoT.Services.Communication.MQTT
 
             // eventArgs.ReasonCode = MqttApplicationMessageReceivedReasonCode.NotAuthorized;
             // _inboundCounter.Increment();
-            // _incomingMessages.Add(eventArgs);
+            this._incomingMessages.Add(eventArgs);
         }
+        #endregion
 
         #region MQTT Interceptor.
 
@@ -198,5 +257,102 @@ namespace LiIoT.Services.Communication.MQTT
         }
 
         #endregion
+
+        private void ProcessIncomingMqttMessages()
+        {
+            var cancellationToken = this._systemCancellationToken.Token;
+
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                MqttApplicationMessageReceivedEventArgs? message = null;
+                try
+                {
+                    message = this._incomingMessages.Take(cancellationToken);
+                    if (message == null || cancellationToken.IsCancellationRequested)
+                    {
+                        this.zzDebug = "dfsdf";
+                        return;
+                    }
+                }
+                catch (System.Threading.ThreadAbortException)
+                {
+                }
+                catch (OperationCanceledException)
+                {
+                }
+                catch (Exception exception)
+                {
+                    this._logger.Log(LogLevel.Error, exception, $"Error while processing MQTT message with topic '{message?.ApplicationMessage?.Topic}'.");
+                }
+
+                if (message != null)
+                {
+                    if (string.IsNullOrEmpty(message.ClientId))
+                    {
+                        continue;
+                    }
+
+                    if (string.IsNullOrEmpty(message.ApplicationMessage?.Topic))
+                    {
+                        continue;
+                    }
+
+                    if (message.ApplicationMessage.Payload == null)
+                    {
+                        continue;
+                    }
+
+                    string topic = message.ApplicationMessage.Topic.ToLower().Trim();
+
+                    lock (this._topic)
+                    {
+                        if (!this._topic.ContainsKey(topic))
+                        {
+                            this.zzDebug = "Sdfdsf";
+                            this._topic.Add(topic, new MqttTopicSubscriberModel());
+                        }
+
+                        this._topic[topic].Messages.Add(new MqttTopicMessagesModel()
+                        {
+                            ClientId = message.ClientId,
+                            DtAdded = DateTime.UtcNow,
+                            Message = System.Text.Encoding.UTF8.GetString(message.ApplicationMessage.Payload),
+                        });
+
+                        this._topic[topic].Message = System.Text.Encoding.UTF8.GetString(message.ApplicationMessage.Payload);
+
+                        if (!this._topic[topic].Poster.Contains(message.ClientId))
+                        {
+                            this._topic[topic].Poster.Add(message.ClientId);
+                        }
+
+                        /*
+                        string topic = eventarg.TopicFilter.Topic.ToLower().Trim();
+
+                        if (this._topic.ContainsKey(topic))
+                        {
+                            if (!this._topic[topic].Clients.Contains(eventarg.ClientId))
+                            {
+                                this._topic[topic].Clients.Add(eventarg.ClientId);
+                            }
+                        }
+                        else
+                        {
+                            this._topic.Add(topic, new MqttTopicSubscriberModel() { Clients = { eventarg.ClientId } });
+                        }
+                        */
+                    }
+                }
+
+                /*
+                this.zzDebug = "sdfdsf";
+                // string dd = message?.ApplicationMessage?.Payload?.ToString();
+                string result = System.Text.Encoding.UTF8.GetString(message.ApplicationMessage.Payload);
+                this.zzDebug = "sdfdf";
+
+                this.zzDebug = "dsfds";
+                */
+            }
+        }
     }
 }
