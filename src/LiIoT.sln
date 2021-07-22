@@ -28,6 +28,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiTools.Helpers.Check", "..\..\LiTools\LiTools.Helpers.Check\LiTools.Helpers.Check.csproj", "{92A0A9DB-D6DF-4897-8F61-95881A368BE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Manufacturer", "Manufacturer", "{BD519F39-D6BB-4899-99E2-098CC80EC9D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiLoT.Manufacturer.Shelly", "LiLoT.Manufacturer.Shelly\LiLoT.Manufacturer.Shelly.csproj", "{E9FFC981-AEFD-453E-809A-BBB3521529AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +68,14 @@ Global
 		{B7D43187-5B80-4448-9B6F-E7DA27E97443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7D43187-5B80-4448-9B6F-E7DA27E97443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7D43187-5B80-4448-9B6F-E7DA27E97443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A0A9DB-D6DF-4897-8F61-95881A368BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A0A9DB-D6DF-4897-8F61-95881A368BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A0A9DB-D6DF-4897-8F61-95881A368BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A0A9DB-D6DF-4897-8F61-95881A368BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9FFC981-AEFD-453E-809A-BBB3521529AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9FFC981-AEFD-453E-809A-BBB3521529AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9FFC981-AEFD-453E-809A-BBB3521529AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9FFC981-AEFD-453E-809A-BBB3521529AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +88,8 @@ Global
 		{8819C017-A324-4E94-A9A8-276481A098C3} = {8B19BE64-167F-48F7-8861-6EA2AD2BB000}
 		{4CFCAC07-6D4C-49CA-AF4A-833EF0FA7F7A} = {8B19BE64-167F-48F7-8861-6EA2AD2BB000}
 		{B7D43187-5B80-4448-9B6F-E7DA27E97443} = {8B19BE64-167F-48F7-8861-6EA2AD2BB000}
+		{92A0A9DB-D6DF-4897-8F61-95881A368BE8} = {8B19BE64-167F-48F7-8861-6EA2AD2BB000}
+		{E9FFC981-AEFD-453E-809A-BBB3521529AB} = {BD519F39-D6BB-4899-99E2-098CC80EC9D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09A8D522-E078-4102-BA68-BB1CE586690E}
