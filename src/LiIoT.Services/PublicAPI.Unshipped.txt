@@ -53,6 +53,10 @@ LiIoT.Services.Devices.DeviceEnums
 LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes
 LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes.Relay = 0 -> LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes
 LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes.Sensor = 1 -> LiIoT.Services.Devices.DeviceEnums.DeviceItemsTypes
+LiIoT.Services.Devices.DeviceIdentifyModel
+LiIoT.Services.Devices.DeviceIdentifyModel.DeviceIdentifyModel() -> void
+LiIoT.Services.Devices.DeviceIdentifyModel.Manufacturer.get -> LiIoT.Services.Devices.DeviceManufacturerEnum
+LiIoT.Services.Devices.DeviceIdentifyModel.Manufacturer.set -> void
 LiIoT.Services.Devices.DeviceItemUpdateModel
 LiIoT.Services.Devices.DeviceItemUpdateModel.DeviceItemUpdateModel() -> void
 LiIoT.Services.Devices.DeviceItemUpdateModel.ItemDtvalue.get -> System.DateTime
@@ -63,9 +67,13 @@ LiIoT.Services.Devices.DeviceItemUpdateModel.Itemtype.get -> LiIoT.Services.Devi
 LiIoT.Services.Devices.DeviceItemUpdateModel.Itemtype.set -> void
 LiIoT.Services.Devices.DeviceItemUpdateModel.ItemValue.get -> string!
 LiIoT.Services.Devices.DeviceItemUpdateModel.ItemValue.set -> void
+LiIoT.Services.Devices.DeviceManufacturerEnum
+LiIoT.Services.Devices.DeviceManufacturerEnum.Shelly = 1 -> LiIoT.Services.Devices.DeviceManufacturerEnum
+LiIoT.Services.Devices.DeviceManufacturerEnum.Unknown = 0 -> LiIoT.Services.Devices.DeviceManufacturerEnum
 LiIoT.Services.Devices.DeviceService
 LiIoT.Services.Devices.DeviceService.DeviceItemDataAdd.set -> void
 LiIoT.Services.Devices.DeviceService.DeviceService(Microsoft.Extensions.Logging.ILogger<LiIoT.Services.Devices.DeviceService!>! logger, LiIoT.Services.RunDataService! rundataService, LiIoT.Services.ConfigFileService! configFileService, LiIoT.Services.Db.LiteDbService! liteDbService, LiIoT.Services.Db.LiteDbServicesDevices! liteDbServicesDevices) -> void
+LiIoT.Services.Devices.DeviceService.IdentifyDevice(string! ip) -> System.Threading.Tasks.Task<System.Tuple<bool, LiIoT.Services.Devices.DeviceIdentifyModel!>!>!
 LiIoT.Services.RunDataService
 LiIoT.Services.RunDataService.Folders.get -> LiIoT.Models.Rundata.RundataServiceFoldersModel!
 LiIoT.Services.RunDataService.Folders.set -> void

@@ -74,6 +74,9 @@ namespace StarterGui
             // MTQQ
             services.AddSingleton<MqttServerService>();
 
+            // Devices
+            services.AddSingleton<LiIoT.Services.Devices.DeviceService>();
+
             // Blazor default services
             services.AddRazorPages();
             services.AddServerSideBlazor();

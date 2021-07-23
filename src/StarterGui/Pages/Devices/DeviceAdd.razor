@@ -1,0 +1,110 @@
+﻿@page "/device/deviceadd"
+@using LiIoT.Services;
+@using LiIoT.Services.Devices
+@using LiIoT.Models.Configuration
+@using System;
+@using System.ComponentModel.DataAnnotations;
+@inject RunDataService _rundata
+@inject ConfigFileService _config
+@inject NavigationManager NavManager
+@inject DeviceService _device
+
+<h3>Device Add</h3>
+
+@switch (Pshow)
+{
+    case PageShowEnum.Addip:
+        <h3>Add new device to system</h3>
+        
+        <EditForm Model="@ipform" OnValidSubmit="@FormReadIp">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <p>
+            <label for="NodeName">Enter ip address to device that you want to add.</label>
+            <InputText id="identifier" @bind-Value="ipform.IpAdress" />
+            <ValidationMessage For="() => ipform.IpAdress" />
+        </p>
+            <button type="submit">Submit</button>
+        </EditForm>
+        break;
+
+        case PageShowEnum.Waiting:
+            <h3>@WaitingText</h3>
+        break;
+
+        default:
+
+        break;
+
+}
+
+
+
+
+
+@code {
+    private enum PageShowEnum { Waiting, Addip}
+
+    private PageShowEnum Pshow = PageShowEnum.Addip;
+    private string WaitingText = string.Empty;
+
+    public DeviceAdd()
+    {
+        this.ipform = new();
+        this.zzDebug = "DeviceAdd";
+    }
+
+    
+    private FormIpModel ipform { get; set; }
+
+    private string zzDebug { get; set; }
+
+    protected override void OnInitialized()
+    {
+        this.ipform = new();
+        
+        this.zzDebug = "sdfdf";
+    }
+
+    private async Task FormReadIp()
+    {
+        // Check if string is null.
+        if (string.IsNullOrEmpty(this.ipform.IpAdress))
+            return;
+
+        // Check if it is an ip adress in field.
+        System.Net.IPAddress ipAdr;
+        if (!LiTools.Helpers.Check.Strings.IsIpAddress(this.ipform.IpAdress, out ipAdr))
+        {
+            return;
+        }
+
+        if (ipAdr == null)
+        {
+            return;
+        }
+
+        WaitingText = "Checking device. wait!!!";
+        Pshow = PageShowEnum.Waiting;
+        
+        var aa = await _device.IdentifyDevice(ipAdr.ToString());
+
+        Pshow = PageShowEnum.Addip;
+        
+        zzDebug = "sdfdsf";
+    }
+
+    private class FormIpModel
+    {
+        /// <summary>
+        /// Gets or sets ip adress.
+        /// </summary>
+        [Required(ErrorMessage = "You need to enter an ip address!!")]
+        public string IpAdress { get; set; }
+        public FormIpModel()
+        {
+            this.IpAdress = string.Empty;
+        }
+    }
+}

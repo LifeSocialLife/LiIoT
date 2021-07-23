@@ -32,7 +32,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiTools.Helpers.Check", "..
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Manufacturer", "Manufacturer", "{BD519F39-D6BB-4899-99E2-098CC80EC9D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiLoT.Manufacturer.Shelly", "LiLoT.Manufacturer.Shelly\LiLoT.Manufacturer.Shelly.csproj", "{E9FFC981-AEFD-453E-809A-BBB3521529AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiIoT.Manufacturer.Shelly", "LiLoT.Manufacturer.Shelly\LiIoT.Manufacturer.Shelly.csproj", "{E9FFC981-AEFD-453E-809A-BBB3521529AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -10,13 +10,18 @@ namespace LiIoT.Services.Devices
 {
     using System;
     using System.Collections.Generic;
+    using System.Net;
+    using System.Net.Http;
     using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
     using LiIoT.Services.Db;
     using Microsoft.Extensions.Logging;
 
     /// <summary>
     /// Device service. Handling devices in software.
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1123:DoNotPlaceRegionsWithinElements", Justification = "Reviewed.")]
     public class DeviceService
     {
         private readonly System.Collections.Concurrent.BlockingCollection<DeviceItemUpdateModel> deviceItemDataUpdate = new();
@@ -62,5 +67,113 @@ namespace LiIoT.Services.Devices
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "Reviewed.")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Reviewed.")]
         private string zzDebug { get; set; }
+
+        /// <summary>
+        /// Try to identify the device ??.
+        /// </summary>
+        /// <param name="ip">ip to device.</param>
+        /// <returns>Tuple (bool, DeviceIdentifyModel).</returns>
+        public async Task<Tuple<bool, DeviceIdentifyModel>> IdentifyDevice(string ip)
+        {
+            DeviceIdentifyModel deviceinfo = new() { Manufacturer = DeviceManufacturerEnum.Unknown };
+
+            string source = string.Empty;
+            bool connectionWorking = false;
+
+            #region Connect using HTTPS
+
+            string url = $"https://{ip}";
+            var tmpPageRead = await LiTools.Helpers.IO.Webpage.ReturnAsString(url);
+
+            if (tmpPageRead.IsWorking)
+            {
+                source = tmpPageRead.Source;
+                connectionWorking = tmpPageRead.IsWorking;
+            }
+
+            this.zzDebug = "sdfdsf";
+
+            if (string.IsNullOrEmpty(source))
+            {
+                connectionWorking = false;
+            }
+
+            #endregion
+
+            #region Try connect using HTTP if HTTPS dident werk.
+
+            if (!connectionWorking)
+            {
+                // Connect using http only.
+                url = $"http://{ip}";
+                tmpPageRead = await LiTools.Helpers.IO.Webpage.ReturnAsString(url);
+
+                if (tmpPageRead.IsWorking)
+                {
+                    source = tmpPageRead.Source;
+                    connectionWorking = tmpPageRead.IsWorking;
+                }
+
+                this.zzDebug = "sfsdf";
+            }
+
+            #endregion
+
+            #region Did we get any data using https or http from device ip. if not. return false.
+
+            if (string.IsNullOrEmpty(source))
+            {
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    System.Diagnostics.Debugger.Break();
+                }
+
+                return new Tuple<bool, DeviceIdentifyModel>(false, deviceinfo);
+            }
+
+            #endregion
+
+            // Get title from page.
+            string title = Regex.Match(source, @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>", RegexOptions.IgnoreCase).Groups["Title"].Value;
+
+            if (string.IsNullOrEmpty(title))
+            {
+                // no title exist. retun false.
+                return new Tuple<bool, DeviceIdentifyModel>(false, deviceinfo);
+            }
+
+            if (title.ToLower().Trim().StartsWith("shelly"))
+            {
+                // This is a shelly device. Try get basic data from uri /shelly
+                deviceinfo.Manufacturer = DeviceManufacturerEnum.Shelly;
+
+                // var tmpIdent = new LiIoT.Manufacturer.Shelly.Helpers.
+                var dd = new LiIoT.Manufacturer.Shelly.Helpers.IdentifyHelper(ip);
+
+
+                this.zzDebug = "fdsfd";
+
+            }
+            this.zzDebug = "efsdf";
+
+            
+
+            this.zzDebug = "sdfdsf";
+
+            
+
+            /*
+             * <head><title>Shelly Switch</title><meta charset=UTF-8>
+
+"Shelly Switch"
+
+
+172.16.100.200
+             * */
+            // Console.WriteLine(content);
+            this.zzDebug = "sdfdsf";
+
+            return new Tuple<bool, DeviceIdentifyModel>(true, deviceinfo);
+        }
     }
 }

@@ -51,6 +51,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\LiTools\LiTools.Helpers.Encoding\LiTools.Helpers.Encoding.csproj" />
     <ProjectReference Include="..\LiIoT.Models\LiIoT.Models.csproj" />
+    <ProjectReference Include="..\LiLoT.Manufacturer.Shelly\LiIoT.Manufacturer.Shelly.csproj" />
   </ItemGroup>
 
 </Project>
