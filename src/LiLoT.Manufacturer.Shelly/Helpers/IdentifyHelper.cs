@@ -13,6 +13,7 @@ namespace LiIoT.Manufacturer.Shelly.Helpers
     using System.Diagnostics.CodeAnalysis;
     using System.Text;
     using System.Threading.Tasks;
+    using LiIoT.Manufacturer.Shelly.Models;
 
     /// <summary>
     /// Shelly Identifier.
@@ -20,7 +21,7 @@ namespace LiIoT.Manufacturer.Shelly.Helpers
     [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1123:DoNotPlaceRegionsWithinElements", Justification = "Reviewed.")]
     public class IdentifyHelper
     {
-        private readonly IdentifyHelperConnectionData connectionData;
+        private readonly IdentifyHelperConnectionDataModel connectionData;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentifyHelper"/> class.
@@ -33,7 +34,7 @@ namespace LiIoT.Manufacturer.Shelly.Helpers
         {
             this.zzDebug = "IdentifyHelper";
             this.IdentifyeringDone = false;
-            this.connectionData = new IdentifyHelperConnectionData()
+            this.connectionData = new IdentifyHelperConnectionDataModel()
             {
                 Ip = ip,
                 Port = port,
@@ -50,6 +51,9 @@ namespace LiIoT.Manufacturer.Shelly.Helpers
             _ = this.Identify();
         }
 
+        /// <summary>
+        /// Gets a value indicating whether true when the device is identifyed.
+        /// </summary>
         public bool IdentifyeringDone { get; private set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0052:Remove unread private members", Justification = "Reviewed.")]
@@ -64,6 +68,24 @@ namespace LiIoT.Manufacturer.Shelly.Helpers
 
             var tmpPageRead = await LiTools.Helpers.IO.Webpage.ReturnAsString($"{this.connectionData.GetConnectionUrl}shelly");
 
+            if (tmpPageRead.IsWorking)
+            {
+                var dd = LiTools.Helpers.Encoding.Json.Deserialize<Models.ApiShellyModel>(tmpPageRead.Source);
+
+                if (dd != null)
+                {
+                    switch (dd.Type.ToUpper().Trim())
+                    {
+                        case "SHSW-25": // Shelly Relay 2,5
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                this.zzDebug = "dsfdsf";
+            }
+                    
             this.zzDebug = "sdfdsf";
 
             #endregion
@@ -74,25 +96,6 @@ namespace LiIoT.Manufacturer.Shelly.Helpers
 
     }
 
-    public class IdentifyHelperConnectionData
-    {
-        public IdentifyHelperConnectionData()
-        {
-            this.Ip = string.Empty;
-            this.Port = 80;
-            this.Username = string.Empty;
-            this.Password = string.Empty;
-            this.UseAuthentication = false;
-        }
-
-        public string Ip { get; set; }
-        public ushort Port { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public bool UseAuthentication { get; set; }
-
-        public string GetConnectionUrl { get { return $"http://{this.Ip}:{this.Port}/";  } }
-        
-    }
+    
 
 }
