@@ -96,6 +96,10 @@ namespace LiIoT.Manufacturer.Shelly.Helpers
 
     }
 
-    
+    public class ShellyDeviceCommunication
+    {
+        public  IdentifyHelperConnectionDataModel connectionData { get; set; }
+
+    }
 
 }
