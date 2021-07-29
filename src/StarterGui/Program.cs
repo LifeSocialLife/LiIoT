@@ -11,8 +11,10 @@ namespace StarterGui
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using LiIoT.Services.Core;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
 
@@ -21,15 +23,34 @@ namespace StarterGui
     /// </summary>
     public class Program
     {
+        private static readonly SystemCancellationTokenService SystemCancellationToken = new SystemCancellationTokenService();
+
         /// <summary>
         /// Main Starter of Gui starter.
         /// </summary>
         /// <param name="args">Read starting arg.</param>
-        public static void Main(string[] args)
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            // CreateHostBuilder(args).Build().Run();
+            // -
+            using (var host = Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureServices(s =>
+                    {
+                        s.AddSingleton(SystemCancellationToken);
+                    });
+                }).Build())
+            {
+                await host.RunAsync(SystemCancellationToken.Token).ConfigureAwait(false);
+
+                SystemCancellationToken?.Cancel();
+            }
         }
 
+        /*
         /// <summary>
         /// Host Creater.
         /// </summary>
@@ -40,6 +61,11 @@ namespace StarterGui
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureServices(s =>
+                    {
+                        s.AddSingleton(SystemCancellationToken);
+                    });
                 });
+        */
     }
 }

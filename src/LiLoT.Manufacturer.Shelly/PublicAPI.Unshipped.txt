@@ -1,0 +1,30 @@
+﻿LiIoT.Manufacturer.Shelly.Helpers.IdentifyHelper
+LiIoT.Manufacturer.Shelly.Helpers.IdentifyHelper.IdentifyeringDone.get -> bool
+LiIoT.Manufacturer.Shelly.Helpers.IdentifyHelper.IdentifyHelper(string! ip, ushort port = 80, string! username = "", string! password = "") -> void
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.GetConnectionUrl.get -> string!
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.IdentifyHelperConnectionDataModel() -> void
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.Ip.get -> string!
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.Ip.set -> void
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.Password.get -> string!
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.Password.set -> void
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.Port.get -> ushort
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.Port.set -> void
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.UseAuthentication.get -> bool
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.UseAuthentication.set -> void
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.Username.get -> string!
+LiIoT.Manufacturer.Shelly.Models.IdentifyHelperConnectionDataModel.Username.set -> void
+LiLoT.Manufacturer.Shelly.Helpers.IdentifyHelper
+LiLoT.Manufacturer.Shelly.Helpers.IdentifyHelper.IdentifyHelper(string! ip, ushort port = 80, string! username = "", string! password = "") -> void
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.ApiShellyModel() -> void
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Auth.get -> string!
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Auth.set -> void
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Firmware.get -> string!
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Firmware.set -> void
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Longid.get -> ushort
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Longid.set -> void
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Mac.get -> string!
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Mac.set -> void
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Type.get -> string!
+LiLoT.Manufacturer.Shelly.Models.ApiShellyModel.Type.set -> void

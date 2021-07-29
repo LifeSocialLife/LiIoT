@@ -12,6 +12,7 @@ namespace StarterGui
     using System.Linq;
     using System.Threading.Tasks;
     using LiIoT.Services;
+    using LiIoT.Services.Communication.MQTT;
     using LiIoT.Services.Db;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Components;
@@ -69,6 +70,12 @@ namespace StarterGui
             // LiteDb services.
             services.AddSingleton<LiteDbService>();
             services.AddSingleton<LiteDbServicesDevices>();
+
+            // MTQQ
+            services.AddSingleton<MqttServerService>();
+
+            // Devices
+            services.AddSingleton<LiIoT.Services.Devices.DeviceService>();
 
             // Blazor default services
             services.AddRazorPages();

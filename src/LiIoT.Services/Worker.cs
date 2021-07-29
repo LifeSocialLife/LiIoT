@@ -16,6 +16,7 @@ namespace LiIoT.Services
     using System.Threading;
     using System.Threading.Tasks;
     using LiIoT.Services;
+    using LiIoT.Services.Communication.MQTT;
     using LiIoT.Services.Db;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -37,6 +38,7 @@ namespace LiIoT.Services
         private readonly IHostApplicationLifetime _hostApplicationLifetime;
         private readonly LiteDbService _liteDb;
         private readonly LiteDbServicesDevices _liteDbDevices;
+        private readonly MqttServerService _mqttServer;
 #pragma warning restore SA1309 // FieldNamesMustNotBeginWithUnderscore
 
         /// <summary>
@@ -49,7 +51,8 @@ namespace LiIoT.Services
         /// <param name="configFileService">ConfigFileService.</param>
         /// <param name="liteDbService">LiteDbService.</param>
         /// <param name="liteDbServicesDevices">LiteDbServicesDevices.</param>
-        public Worker(ILogger<Worker> logger, IHostApplicationLifetime hostappLifetime, IConfiguration configuration, RunDataService rundataService, ConfigFileService configFileService, LiteDbService liteDbService, LiteDbServicesDevices liteDbServicesDevices)
+        /// <param name="mqttServerService">MqttServerService.</param>
+        public Worker(ILogger<Worker> logger, IHostApplicationLifetime hostappLifetime, IConfiguration configuration, RunDataService rundataService, ConfigFileService configFileService, LiteDbService liteDbService, LiteDbServicesDevices liteDbServicesDevices, MqttServerService mqttServerService)
         {
             this._logger = logger;
             this._hostApplicationLifetime = hostappLifetime;
@@ -58,6 +61,7 @@ namespace LiIoT.Services
             this._configfile = configFileService;
             this._liteDb = liteDbService;
             this._liteDbDevices = liteDbServicesDevices;
+            this._mqttServer = mqttServerService;
             this.zzDebug = "Worker";
         }
 
@@ -96,6 +100,8 @@ namespace LiIoT.Services
                     await Task.Delay(1000, stoppingToken);
                     continue;
                 }
+
+                this._mqttServer.Check();
 
                 var a1 = this._rundata.Folders;
                 var a2 = this._rundata.Hardware;
